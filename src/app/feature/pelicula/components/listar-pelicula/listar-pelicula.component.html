@@ -1,12 +1,28 @@
-
-
+<h1 class="text-center">Peliculas</h1>
+<br />
+<div type="container" class="col-auto container d-grid gap-2 font-weight-bold">
+  <button
+    id="linkCrearPelicula"
+    routerLink="/crear_pelicula"
+    type="button"
+    class="btn btn-dark"
+  >
+    Crear Pelicula
+  </button>
+</div>
+<br />
 <div id="peliculas" class="container table-responsive">
-  <table class="table table-dark table-striped table-sm text-center">
+  <table class="table align-middle table-dark table-striped">
+    <caption>
+      Lista de Peliculas
+    </caption>
     <thead>
       <tr>
-        <th class="col-md-2">Codigo Pelicula</th>
+        <th class="col-md-1">Codigo Pelicula</th>
         <th>Titulo Pelicula</th>
-        <th>Director Pelicula</th>
+        <th class="col-md-3">Director Pelicula</th>
+        <th>Actualizar</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -14,6 +30,19 @@
         <td>{{ item.id }}</td>
         <td>{{ item.titulo }}</td>
         <td>{{ item.director }}</td>
+        <td>
+          <a
+            (click)="onSubmitUpdate(item)"
+            type="button"
+            class="btn btn-primary"
+            >Actualizar</a
+          >
+        </td>
+        <td>
+          <a (click)="onSubmitDelete(item)" type="button" class="btn btn-danger"
+            >Eliminar</a
+          >
+        </td>
       </tr>
     </tbody>
   </table>

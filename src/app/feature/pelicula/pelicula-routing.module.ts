@@ -1,3 +1,4 @@
+import { EditarPeliculaComponent } from './components/editar-pelicula/editar-pelicula.component';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from '@angular/router';
 import { CrearPeliculaComponent } from './components/crear-pelicula/crear-pelicula.component';
@@ -17,6 +18,10 @@ const routes: Routes=[
       {
         path:'listar',
         component: ListarPeliculaComponent
+      },
+      {
+        path:'editar',
+        component: EditarPeliculaComponent
       },
       {
         path:'borrar',
