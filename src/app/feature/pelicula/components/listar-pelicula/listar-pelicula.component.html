@@ -1,0 +1,20 @@
+
+
+<div id="peliculas" class="container table-responsive">
+  <table class="table table-dark table-striped table-sm text-center">
+    <thead>
+      <tr>
+        <th class="col-md-2">Codigo Pelicula</th>
+        <th>Titulo Pelicula</th>
+        <th>Director Pelicula</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaPeliculas | async" class="table-active">
+        <td>{{ item.id }}</td>
+        <td>{{ item.titulo }}</td>
+        <td>{{ item.director }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

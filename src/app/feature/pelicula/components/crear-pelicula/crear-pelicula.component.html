@@ -1,0 +1,33 @@
+<div class="text-center">
+  <h1>Registrar Pelicula</h1>
+  <form action="container" [formGroup]="peliculaForm" #registrarForm="ngForm">
+    <legend>Registra los datos de la pelicula</legend>
+    <div class="row g-2">
+      <div class="col-sm-6">
+        <input
+          validar
+          type="text"
+          id="tituloPelicula"
+          name="titulo"
+          placeholder="Titulo de la Pelicula"
+          formControlName="titulo"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6">
+        <input
+          validar
+          type="text"
+          id="directorPelicula"
+          name="director"
+          placeholder="Director de la Pelicula"
+          class="form-control"
+          formControlName="director"
+        />
+      </div>
+    </div>
+      <button [disabled]="!registrarForm.form.valid" type="submit" class="btn btn-dark mb-3" (click)="onSubmit()" >
+        Crear
+      </button>
+  </form>
+</div>
