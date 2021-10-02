@@ -16,9 +16,15 @@ export class PeliculaService {
   }
 
   public guardar(pelicula: Pelicula) {
-    console.log("paso por guardar en el service",pelicula);
+    console.log("paso por guardar en el service ID: ",pelicula.id," Otro: ", pelicula);
     return this.http.doPost<Pelicula, boolean>(`${environment.endpoint}/peliculas`, pelicula,
-                                                this.http.optsName('crear/actualizar peliculas'));
+                                                this.http.optsName('crear peliculas'));
+  }
+
+  public actualizar(pelicula: Pelicula, peliculaEditor: Pelicula) {
+    console.log("paso por actualizar en el service ID: ",pelicula);
+    return this.http.doPut<Pelicula, boolean>(`${environment.endpoint}/peliculas/${pelicula.id}`, peliculaEditor,
+                                                this.http.optsName('actualizar peliculas'));
   }
 
   public eliminar(pelicula: Pelicula) {

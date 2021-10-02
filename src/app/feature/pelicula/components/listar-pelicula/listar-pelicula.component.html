@@ -47,3 +47,6 @@
     </tbody>
   </table>
 </div>
+<div *ngIf="!(listaPeliculas|async)?.length" class="container">
+  <div class = "alert alert-danger"  role = "alert">Hey, No hay peliculas disponibles...</div>
+</div>

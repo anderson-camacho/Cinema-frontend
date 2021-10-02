@@ -16,10 +16,12 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 60;
 export class EditarPeliculaComponent implements OnInit {
   peliculaForm: FormGroup;
   pelicula = {} as Pelicula;
+  peliculaEnviar = {} as Pelicula;
   constructor(protected peliculaService: PeliculaService, private router: Router) { }
 
   ngOnInit() {
     this.construirFormularioPelicula();
+    this.onSubmit();
   }
 
   onSubmit() {
@@ -27,21 +29,27 @@ export class EditarPeliculaComponent implements OnInit {
     let titulo = localStorage.getItem("titulo");
     let director = localStorage.getItem("director");
     this.pelicula.id = +id;
-    this.pelicula.titulo = titulo;
+    this.pelicula.titulo=titulo;
     this.pelicula.director = director;
+
 
     this.peliculaService.consultarById(this.pelicula).subscribe(
       data=>{
         this.pelicula = data;
+        this.peliculaForm.patchValue(this.pelicula);
       }
     );
+  }
 
-    this.peliculaService.guardar(this.peliculaForm.value)
+  onSubmitActualizar(){
+    this.peliculaEnviar = this.peliculaForm.value;
+
+    this.peliculaService.actualizar(this.pelicula, this.peliculaEnviar)
     .pipe(
       tap(()=> this.router.navigate(['listar_pelicula'])),
       delay(2000)
     )
-    .subscribe(
+  .subscribe(
       data => {console.log(data)},
       error => {console.log(error)}
     );
