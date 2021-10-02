@@ -7,11 +7,9 @@ import { CrearPeliculaComponent } from '@pelicula/components/crear-pelicula/crea
 import { EditarPeliculaComponent } from '@pelicula/components/editar-pelicula/editar-pelicula.component';
 import { ListarPeliculaComponent } from '@pelicula/components/listar-pelicula/listar-pelicula.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'producto', loadChildren: () => import('@producto/producto.module').then(mod => mod.ProductoModule) },
   { path: 'pelicula', loadChildren: () => import('@pelicula/pelicula.module').then(mod => mod.PeliculaModule)},
   { path: 'crear_pelicula', component:CrearPeliculaComponent},
   { path: 'listar_pelicula', component:ListarPeliculaComponent},

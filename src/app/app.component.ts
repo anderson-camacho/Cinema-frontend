@@ -7,11 +7,11 @@ import { MenuItem } from '@core/modelo/menu-item';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'app-base';
   public companies: MenuItem[] = [
     { url: '/home', nombre: 'home' },
-    { url: '/producto', nombre: 'producto' },
     { url: '/pelicula/listar', nombre: 'pelicula' }
 
   ];
