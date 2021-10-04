@@ -33,7 +33,7 @@ export class EditarPeliculaComponent implements OnInit {
     this.pelicula.director = director;
 
 
-    this.peliculaService.consultarById(this.pelicula).subscribe(
+    this.peliculaService.consultarByIdPelicula(this.pelicula).subscribe(
       data=>{
         this.pelicula = data;
         this.peliculaForm.patchValue(this.pelicula);
@@ -44,7 +44,7 @@ export class EditarPeliculaComponent implements OnInit {
   onSubmitActualizar(){
     this.peliculaEnviar = this.peliculaForm.value;
 
-    this.peliculaService.actualizar(this.pelicula, this.peliculaEnviar)
+    this.peliculaService.actualizarPelicula(this.pelicula, this.peliculaEnviar)
     .pipe(
       tap(()=> this.router.navigate(['listar_pelicula'])),
       delay(2000)

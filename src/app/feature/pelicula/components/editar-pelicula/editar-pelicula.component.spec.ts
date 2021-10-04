@@ -33,7 +33,7 @@ describe('EditarPeliculaComponent', () => {
     fixture = TestBed.createComponent(EditarPeliculaComponent);
     component = fixture.componentInstance;
     peliculaService = TestBed.inject(PeliculaService);
-    spyOn(peliculaService, 'actualizar').and.returnValue(
+    spyOn(peliculaService, 'actualizarPelicula').and.returnValue(
       of(true)
     );
     fixture.detectChanges();
@@ -57,10 +57,6 @@ describe('EditarPeliculaComponent', () => {
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect
-  });
-
-  afterEach(() => {
-    fixture.destroy();
   });
 
 });

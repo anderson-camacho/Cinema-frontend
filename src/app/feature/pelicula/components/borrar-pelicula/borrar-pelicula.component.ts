@@ -19,7 +19,7 @@ export class BorrarPeliculaComponent implements OnInit {
   }
 
   onSubmitDelete(pelicula: Pelicula): void {
-    this.peliculaService.eliminar(pelicula).subscribe(
+    this.peliculaService.eliminarPelicula(pelicula).subscribe(
       data => {
         console.log(data);
         this.ngOnInit();

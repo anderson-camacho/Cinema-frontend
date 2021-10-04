@@ -16,11 +16,11 @@ export class ListarPeliculaComponent implements OnInit {
   constructor(protected peliculaService: PeliculaService, private router: Router) { }
 
   ngOnInit() {
-    this.listaPeliculas = this.peliculaService.consultar();
+    this.listaPeliculas = this.peliculaService.consultarPelicula();
   }
 
   onSubmitDelete(pelicula: Pelicula): void {
-    this.peliculaService.eliminar(pelicula).subscribe(
+    this.peliculaService.eliminarPelicula(pelicula).subscribe(
       data => {
         console.log(data);
         this.ngOnInit();

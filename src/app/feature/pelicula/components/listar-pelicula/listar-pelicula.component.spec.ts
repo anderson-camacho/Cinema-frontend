@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 
-describe('ListarProductoComponent', () => {
+describe('ListarPeliculaComponent', () => {
   let component: ListarPeliculaComponent;
   let fixture: ComponentFixture<ListarPeliculaComponent>;
   let peliculaService: PeliculaService;
@@ -32,7 +32,7 @@ describe('ListarProductoComponent', () => {
     fixture = TestBed.createComponent(ListarPeliculaComponent);
     component = fixture.componentInstance;
     peliculaService = TestBed.inject(PeliculaService);
-    spyOn(peliculaService, 'consultar').and.returnValue(
+    spyOn(peliculaService, 'consultarPelicula').and.returnValue(
       of(listaPeliculas)
     );
     fixture.detectChanges();

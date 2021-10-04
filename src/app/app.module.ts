@@ -1,5 +1,3 @@
-import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -24,7 +22,7 @@ import { PeliculaModule } from '@pelicula/pelicula.module';
     PeliculaModule,
     CoreModule
   ],
-  providers: [CookieService, PeliculaService],
+  providers: [CookieService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

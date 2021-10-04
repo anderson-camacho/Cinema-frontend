@@ -33,7 +33,7 @@ describe('CrearProductoComponent', () => {
     fixture = TestBed.createComponent(EditarPeliculaComponent);
     component = fixture.componentInstance;
     peliculaService = TestBed.inject(PeliculaService);
-    spyOn(peliculaService, 'guardar').and.returnValue(
+    spyOn(peliculaService, 'guardarPelicula').and.returnValue(
       of(true)
     );
     fixture.detectChanges();

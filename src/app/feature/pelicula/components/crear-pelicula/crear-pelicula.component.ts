@@ -24,7 +24,7 @@ export class CrearPeliculaComponent implements OnInit {
 
   onSubmit() {
     console.log("paso por onSubmit",this.peliculaForm.value );
-    this.peliculaService.guardar(this.peliculaForm.value)
+    this.peliculaService.guardarPelicula(this.peliculaForm.value)
     .pipe(
       tap(()=> this.router.navigate(['listar_pelicula'])),
       delay(2000)
