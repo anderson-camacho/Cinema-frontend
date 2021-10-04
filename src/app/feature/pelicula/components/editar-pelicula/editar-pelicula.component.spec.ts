@@ -47,7 +47,7 @@ describe('EditarPeliculaComponent', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
   });
 
-  it('Registrando producto', () => {
+  it('Actualizando producto', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
     component.peliculaForm.controls.titulo.setValue('peliculaActualizadaTitulo');
     component.peliculaForm.controls.director.setValue('pelicualActualizadaDirector');
@@ -58,4 +58,9 @@ describe('EditarPeliculaComponent', () => {
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect
   });
+
+  afterEach(() => {
+    fixture.destroy();
+  });
+
 });

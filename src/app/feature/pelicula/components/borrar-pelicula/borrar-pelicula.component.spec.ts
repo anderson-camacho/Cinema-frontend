@@ -5,10 +5,13 @@ import {
 import { BorrarPeliculaComponent } from './borrar-pelicula.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
+import { of } from 'rxjs';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarPeliculaComponent;
   let fixture: ComponentFixture<BorrarPeliculaComponent>;
+  let peliculaService: PeliculaService ;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -18,6 +21,7 @@ describe('BorrarProductoComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
+      providers: [PeliculaService]
     })
       .compileComponents();
   }));
@@ -25,10 +29,14 @@ describe('BorrarProductoComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(BorrarPeliculaComponent);
     component = fixture.componentInstance;
+    peliculaService = TestBed.inject(PeliculaService);
+    spyOn(peliculaService, 'guardar').and.returnValue(
+      of(true)
+    );
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should delete', () => {
     expect(component).toBeTruthy();
   });
 });
