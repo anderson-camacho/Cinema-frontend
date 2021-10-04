@@ -1,5 +1,4 @@
-import { CrearPeliculaComponent } from '@pelicula/components/crear-pelicula/crear-pelicula.component';
-import { EditarPeliculaComponent } from './../editar-pelicula/editar-pelicula.component';
+import { EditarPeliculaComponent } from '@pelicula/components/editar-pelicula/editar-pelicula.component';
 import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
@@ -10,14 +9,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe('CrearProductoComponent', () => {
-  let component: CrearPeliculaComponent;
-  let fixture: ComponentFixture<CrearPeliculaComponent>;
+describe('EditarPeliculaComponent', () => {
+  let component: EditarPeliculaComponent;
+  let fixture: ComponentFixture<EditarPeliculaComponent>;
   let peliculaService: PeliculaService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrearPeliculaComponent ],
+      declarations: [ EditarPeliculaComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -31,16 +30,16 @@ describe('CrearProductoComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrearPeliculaComponent);
+    fixture = TestBed.createComponent(EditarPeliculaComponent);
     component = fixture.componentInstance;
     peliculaService = TestBed.inject(PeliculaService);
-    spyOn(peliculaService, 'guardar').and.returnValue(
+    spyOn(peliculaService, 'actualizar').and.returnValue(
       of(true)
     );
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should update', () => {
     expect(component).toBeTruthy();
   });
 
@@ -50,8 +49,8 @@ describe('CrearProductoComponent', () => {
 
   it('Registrando producto', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
-    component.peliculaForm.controls.id.setValue('001');
-    component.peliculaForm.controls.descripcion.setValue('Producto test');
+    component.peliculaForm.controls.titulo.setValue('peliculaActualizadaTitulo');
+    component.peliculaForm.controls.director.setValue('pelicualActualizadaDirector');
     expect(component.peliculaForm.valid).toBeTruthy();
 
     component.onSubmit();

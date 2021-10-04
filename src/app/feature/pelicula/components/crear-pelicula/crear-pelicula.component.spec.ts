@@ -47,10 +47,10 @@ describe('CrearProductoComponent', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
   });
 
-  it('Registrando producto', () => {
+  it('Registrando pelicula', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
-    component.peliculaForm.controls.id.setValue('001');
-    component.peliculaForm.controls.descripcion.setValue('Producto test');
+    component.peliculaForm.controls.titulo.setValue('PeliculaPrueba');
+    component.peliculaForm.controls.director.setValue('directorPrueba');
     expect(component.peliculaForm.valid).toBeTruthy();
 
     component.onSubmit();

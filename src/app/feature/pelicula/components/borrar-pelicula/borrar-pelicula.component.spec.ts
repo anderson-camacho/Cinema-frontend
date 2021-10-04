@@ -12,14 +12,14 @@ describe('BorrarProductoComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorrarPeliculaComponent ],
+      declarations: [BorrarPeliculaComponent],
       imports: [
         CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
