@@ -5,9 +5,9 @@ export class PeliculaTestDataBuilder{
   titulo: string;
   director: string;
 
-  constructor() {
-    this.titulo = "Ratatuille";
-    this.director = "Disney";
+  constructor(titulo: string, director: string) {
+    this.titulo = titulo;
+    this.director = director;
   }
 
   build(): Pelicula{
