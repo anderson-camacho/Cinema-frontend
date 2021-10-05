@@ -1,6 +1,7 @@
+import { IPelicula } from './pelicula.interface';
 import { Pelicula } from "./pelicula";
 
-export class PeliculaTestDataBuilder{
+export class PeliculaTestDataBuilder implements IPelicula {
   id: number;
   titulo: string;
   director: string;
@@ -10,8 +11,12 @@ export class PeliculaTestDataBuilder{
     this.director = director;
   }
 
-  build(): Pelicula{
-    return{
+  setID(id: number) {
+    this.id = id;
+  }
+
+  build(): Pelicula {
+    return {
       id: this.id,
       titulo: this.titulo,
       director: this.director
