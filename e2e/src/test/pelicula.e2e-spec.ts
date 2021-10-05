@@ -2,7 +2,7 @@ import { PeliculaPage } from './../page/pelicula/pelicula.po';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 
-describe('workspace-project Producto', () => {
+describe('workspace-project Pelicula', () => {
     let page: AppPage;
     let navBar: NavbarPage;
     let pelicula: PeliculaPage;
@@ -13,7 +13,7 @@ describe('workspace-project Producto', () => {
         pelicula = new PeliculaPage();
     });
 
-    it('Deberia crear producto', () => {
+    it('Deberia crear pelicula', () => {
         const TITULO_PELICULA = 'HombreDeNegro';
         const DIRECTOR_PELICULA = 'OtroHombreDeNegro';
 

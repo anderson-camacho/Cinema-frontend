@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
 import { of } from 'rxjs';
 
-describe('BorrarProductoComponent', () => {
+describe('BorrarPeliculaComponent', () => {
   let component: BorrarPeliculaComponent;
   let fixture: ComponentFixture<BorrarPeliculaComponent>;
   let peliculaService: PeliculaService ;

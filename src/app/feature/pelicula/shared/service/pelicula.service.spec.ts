@@ -1,4 +1,3 @@
-import { ResultadoPelicula } from './../model/ResultadoPelicula';
 import { PeliculaTestDataBuilder } from './../model/pelicula.testdatabuilder';
 import { environment } from 'src/environments/environment';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
@@ -8,7 +7,7 @@ import { HttpService } from '@core/services/http.service';
 import { Pelicula } from '../model/pelicula';
 import { HttpResponse } from '@angular/common/http';
 
-describe('PeliculaService sin soporte de pruebas', () => {
+describe('Pruebas PeliculaService', () => {
   let service: PeliculaServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndpointPelicula = `${environment.endpoint}/peliculas`;
@@ -27,7 +26,7 @@ describe('PeliculaService sin soporte de pruebas', () => {
     expect(peliculaService).toBeTruthy();
   });
 
-  it('deberia listar productos', () => {
+  it('Prueba de gestion', () => {
     const dummyPeliculas = [
       new PeliculaTestDataBuilder().build(),
       new PeliculaTestDataBuilder().build()
@@ -43,24 +42,31 @@ describe('PeliculaService sin soporte de pruebas', () => {
 
   it('deberia crear una pelicula', () => {
     const dummySolicitud = { titulo: 'pelicula123', director: 'director123' };
-    const dummyRespuesta = { valor: 1 };
+    const dummyRespuesta = true;
     service.guardarPelicula(dummySolicitud as Pelicula).subscribe((respuesta) => {
       expect(respuesta).toEqual(dummyRespuesta);
     });
     const req = httpMock.expectOne(apiEndpointPelicula);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<any>({ body: { valor: dummyRespuesta } }));
+    req.event(new HttpResponse<boolean>({ body: true }));
   });
-
-  it('deberia actualizar el estado del pelicula', () => {
-    const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123' };
-    const dummyPeliculaPos = {titulo: 'pelicula456', director: 'director456' };
+  it('deberia actualizar la pelicula', () => {
+    const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123'};
+    const dummyPeliculaPos = {titulo: 'pelicula456', director: 'director456'};
     service.actualizarPelicula(dummyPeliculaPre, dummyPeliculaPos as Pelicula).subscribe((respuesta) => {
-      expect(respuesta).toEqual(null);
+      expect(respuesta).toEqual(false);
     });
     const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
     expect(req.request.method).toBe('PUT');
-    req.event(new HttpResponse<ResultadoPelicula>({}));
+    req.event(new HttpResponse<boolean>({body: false}));
   });
-
+  it('deberia eliminar la pelicula', () => {
+    const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123' };
+    service.eliminarPelicula(dummyPeliculaPre).subscribe((respuesta) => {
+      expect(respuesta).toEqual(false);
+    });
+    const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
+    expect(req.request.method).toBe('DELETE');
+    req.event(new HttpResponse<boolean>({body: false}));
+  });
 });

@@ -9,11 +9,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 
-describe('ListarPeliculaComponent', () => {
+describe('Pruebas Unitarias de Consulta a la Lista', () => {
   let component: ListarPeliculaComponent;
   let fixture: ComponentFixture<ListarPeliculaComponent>;
   let peliculaService: PeliculaService;
-  const listaPeliculas: Pelicula[] = [new Pelicula(1, 'Pelicula 1', 'Anderson'), new Pelicula(2, 'Pelicula 2', 'Ana')];
+  const dummyListaPeliculas: Pelicula[] = [new Pelicula(1, 'Pelicula 1', 'Anderson'), new Pelicula(2, 'Pelicula 2', 'Ana')];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('ListarPeliculaComponent', () => {
     component = fixture.componentInstance;
     peliculaService = TestBed.inject(PeliculaService);
     spyOn(peliculaService, 'consultarPelicula').and.returnValue(
-      of(listaPeliculas)
+      of(dummyListaPeliculas)
     );
     fixture.detectChanges();
   });

@@ -9,7 +9,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe('CrearProductoComponent', () => {
+describe('CrearPeliculaComponent', () => {
   let component: EditarPeliculaComponent;
   let fixture: ComponentFixture<EditarPeliculaComponent>;
   let peliculaService: PeliculaService ;

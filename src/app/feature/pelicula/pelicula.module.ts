@@ -1,3 +1,5 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { EditarPeliculaComponent } from './components/editar-pelicula/editar-pelicula.component';
 import { NgModule } from '@angular/core';
 import { PeliculaRoutingModule } from './pelicula-routing.module';
@@ -19,7 +21,10 @@ import { PeliculaService } from './shared/service/pelicula.service';
   ],
   imports: [
     PeliculaRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PeliculaService]
 })
