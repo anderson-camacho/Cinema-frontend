@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'pelicula', loadChildren: () => import('@pelicula/pelicula.module').then(mod => mod.PeliculaModule)},
   { path: 'crear_pelicula', component:CrearPeliculaComponent},
   { path: 'listar_pelicula', component:ListarPeliculaComponent},
-  { path: 'eliminar_pelicula', component:BorrarPeliculaComponent},
-  { path: 'editar_pelicula', component:EditarPeliculaComponent}
+  { path: 'eliminar_pelicula/:id', component:BorrarPeliculaComponent},
+  { path: 'editar_pelicula/:id', component:EditarPeliculaComponent}
 
 ];
 
