@@ -16,8 +16,8 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
   let peliculaServicioStub: Partial<PeliculaService>;
 
   let dummyListaPeliculas: Pelicula[] = [
-    new Pelicula(1, "Pelicula 1", "Director 1"),
-    new Pelicula(2, "Pelicula 2", "Director 2")
+    new Pelicula({id:1, titulo:"Pelicula 1", director:"Director 1"}),
+    new Pelicula({id:2, titulo:"Pelicula 2", director:"Director 2"})
   ];
 
   peliculaServicioStub = {
