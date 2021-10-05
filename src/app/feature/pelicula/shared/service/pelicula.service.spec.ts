@@ -53,7 +53,7 @@ describe('Pelicula Service Pruebas Unitarias', () => {
   it('Pelicula pruebas de gestion PUT', () => {
     const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123'};
     const dummyPeliculaPos = {titulo: 'pelicula456', director: 'director456'};
-    service.actualizarPelicula(dummyPeliculaPre, dummyPeliculaPos as Pelicula).subscribe((respuesta) => {
+    service.actualizarPelicula(dummyPeliculaPre.id, dummyPeliculaPos as Pelicula).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
     });
     const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
@@ -62,7 +62,7 @@ describe('Pelicula Service Pruebas Unitarias', () => {
   });
   it('Pelicula pruebas de gestion DELETE', () => {
     const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123' };
-    service.eliminarPelicula(dummyPeliculaPre).subscribe((respuesta) => {
+    service.eliminarPelicula(dummyPeliculaPre.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
     });
     const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
