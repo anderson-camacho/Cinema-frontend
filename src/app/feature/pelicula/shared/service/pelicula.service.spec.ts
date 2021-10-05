@@ -7,7 +7,7 @@ import { HttpService } from '@core/services/http.service';
 import { Pelicula } from '../model/pelicula';
 import { HttpResponse } from '@angular/common/http';
 
-describe('Pruebas PeliculaService', () => {
+describe('Pelicula Service Pruebas Unitarias', () => {
   let service: PeliculaServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndpointPelicula = `${environment.endpoint}/peliculas`;
@@ -21,12 +21,12 @@ describe('Pruebas PeliculaService', () => {
     service = TestBed.inject(PeliculaServiceImplement);
   });
 
-  it('should be created', () => {
+  it('Pelicula deberia ser creada', () => {
     const peliculaService: PeliculaServiceImplement = TestBed.inject(PeliculaServiceImplement);
     expect(peliculaService).toBeTruthy();
   });
 
-  it('Prueba de gestion', () => {
+  it('Pelicula pruebas de gestion GET', () => {
     const dummyPeliculas = [
       new PeliculaTestDataBuilder("Pelicula 1", "Director 1").build(),
       new PeliculaTestDataBuilder("Director 2", "Pelicula 2").build()
@@ -40,7 +40,7 @@ describe('Pruebas PeliculaService', () => {
     req.flush(dummyPeliculas);
   });
 
-  it('deberia crear una pelicula', () => {
+  it('Pelicula pruebas de gestion POST', () => {
     const dummySolicitud = { titulo: 'pelicula123', director: 'director123' };
     const dummyRespuesta = true;
     service.guardarPelicula(dummySolicitud as Pelicula).subscribe((respuesta) => {
@@ -50,7 +50,7 @@ describe('Pruebas PeliculaService', () => {
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({ body: true }));
   });
-  it('deberia actualizar la pelicula', () => {
+  it('Pelicula pruebas de gestion PUT', () => {
     const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123'};
     const dummyPeliculaPos = {titulo: 'pelicula456', director: 'director456'};
     service.actualizarPelicula(dummyPeliculaPre, dummyPeliculaPos as Pelicula).subscribe((respuesta) => {
@@ -60,7 +60,7 @@ describe('Pruebas PeliculaService', () => {
     expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({body: false}));
   });
-  it('deberia eliminar la pelicula', () => {
+  it('Pelicula pruebas de gestion DELETE', () => {
     const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123' };
     service.eliminarPelicula(dummyPeliculaPre).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
