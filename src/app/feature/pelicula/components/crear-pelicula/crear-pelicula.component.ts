@@ -23,7 +23,6 @@ export class CrearPeliculaComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("paso por onSubmit",this.peliculaForm.value );
     this.peliculaService.guardarPelicula(this.peliculaForm.value)
     .pipe(
       tap(()=> this.router.navigate(['listar_pelicula'])),
@@ -33,6 +32,7 @@ export class CrearPeliculaComponent implements OnInit {
       data => {console.log(data)},
       error => {console.log(error)}
     );
+    alert("El registro fue exitoso");
   }
 
   private construirFormularioPelicula() {
