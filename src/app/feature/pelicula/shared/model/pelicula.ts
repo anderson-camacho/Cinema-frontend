@@ -1,4 +1,5 @@
-export class Pelicula {
+import { IPelicula } from './pelicula.interface';
+export class Pelicula implements IPelicula{
   id: number;
   titulo: string;
   director: string;
