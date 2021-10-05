@@ -7,6 +7,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
 import { Pelicula } from '../model/pelicula';
 import { HttpResponse } from '@angular/common/http';
+
 describe('PeliculaService sin soporte de pruebas', () => {
   let service: PeliculaServiceImplement;
   let httpMock: HttpTestingController;
@@ -48,7 +49,18 @@ describe('PeliculaService sin soporte de pruebas', () => {
     });
     const req = httpMock.expectOne(apiEndpointPelicula);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<{ valor: ResultadoPelicula }>({ body: { valor: dummyRespuesta } }));
+    req.event(new HttpResponse<any>({ body: { valor: dummyRespuesta } }));
+  });
+
+  it('deberia actualizar el estado del pelicula', () => {
+    const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123' };
+    const dummyPeliculaPos = {titulo: 'pelicula456', director: 'director456' };
+    service.actualizarPelicula(dummyPeliculaPre, dummyPeliculaPos as Pelicula).subscribe((respuesta) => {
+      expect(respuesta).toEqual(null);
+    });
+    const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
+    expect(req.request.method).toBe('PUT');
+    req.event(new HttpResponse<ResultadoPelicula>({}));
   });
 
 });
