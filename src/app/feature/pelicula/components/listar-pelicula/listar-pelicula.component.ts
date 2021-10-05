@@ -20,21 +20,19 @@ export class ListarPeliculaComponent implements OnInit {
   }
 
   onSubmitDelete(pelicula: Pelicula): void {
-    this.peliculaService.eliminarPelicula(pelicula).subscribe(
-      data => {
-        console.log(data);
-        this.ngOnInit();
-      },
-      error => { console.log(error) }
-    );
+    this.router.navigate([`eliminar_pelicula/${pelicula.id}`]);
+    // this.peliculaService.eliminarPelicula(pelicula).subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.ngOnInit();
+    //   },
+    //   error => { console.log(error) }
+    // );
 
   }
 
   onSubmitUpdate(pelicula: Pelicula): void {
-    localStorage.setItem("id", pelicula.id.toString());
-    localStorage.setItem("titulo", pelicula.titulo.toString());
-    localStorage.setItem("director", pelicula.director.toString());
-    this.router.navigate(["editar_pelicula"]);
+    this.router.navigate([`editar_pelicula/${pelicula.id}`]);
 
   }
 
