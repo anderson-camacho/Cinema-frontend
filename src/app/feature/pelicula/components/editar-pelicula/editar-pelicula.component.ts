@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PeliculaService } from '../../shared/service/pelicula.service';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
@@ -14,25 +14,21 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 60;
   styleUrls: ['./editar-pelicula.component.scss']
 })
 export class EditarPeliculaComponent implements OnInit {
+  peliculaId: number;
   peliculaForm: FormGroup;
   pelicula = {} as Pelicula;
   peliculaEnviar = {} as Pelicula;
-  constructor(protected peliculaService: PeliculaService, private router: Router) { }
+  constructor(protected peliculaService: PeliculaService, private route: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit() {
     this.construirFormularioPelicula();
-    this.onSubmit();
+        this.peliculaId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
+        this.onSubmit();
   }
 
   onSubmit() {
-    let id = localStorage.getItem("id");
-    let titulo = localStorage.getItem("titulo");
-    let director = localStorage.getItem("director");
-    this.pelicula.id = +id;
-    this.pelicula.titulo=titulo;
-    this.pelicula.director = director;
-
-
+    this.pelicula.id = this.peliculaId;
     this.peliculaService.consultarByIdPelicula(this.pelicula).subscribe(
       data=>{
         this.pelicula = data;
@@ -43,8 +39,7 @@ export class EditarPeliculaComponent implements OnInit {
 
   onSubmitActualizar(){
     this.peliculaEnviar = this.peliculaForm.value;
-
-    this.peliculaService.actualizarPelicula(this.pelicula, this.peliculaEnviar)
+    this.peliculaService.actualizarPelicula(this.peliculaId, this.peliculaEnviar)
     .pipe(
       tap(()=> this.router.navigate(['listar_pelicula'])),
       delay(2000)
