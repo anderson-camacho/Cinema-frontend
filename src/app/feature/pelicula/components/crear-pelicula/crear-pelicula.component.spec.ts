@@ -1,7 +1,6 @@
-import { EditarPeliculaComponent } from './../editar-pelicula/editar-pelicula.component';
+import { CrearPeliculaComponent } from '@pelicula/components/crear-pelicula/crear-pelicula.component';
 import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
 
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,14 +8,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe('CrearPeliculaComponent', () => {
-  let component: EditarPeliculaComponent;
-  let fixture: ComponentFixture<EditarPeliculaComponent>;
-  let peliculaService: PeliculaService ;
+describe('Peliculas Crear - Pruebas Unitarias', () => {
+  let component: CrearPeliculaComponent;
+  let fixture: ComponentFixture<CrearPeliculaComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditarPeliculaComponent ],
+      declarations: [CrearPeliculaComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -26,36 +24,29 @@ describe('CrearPeliculaComponent', () => {
       ],
       providers: [PeliculaService, HttpService],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditarPeliculaComponent);
+    fixture = TestBed.createComponent(CrearPeliculaComponent);
     component = fixture.componentInstance;
-    peliculaService = TestBed.inject(PeliculaService);
-    spyOn(peliculaService, 'guardarPelicula').and.returnValue(
-      of(true)
-    );
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Pelicula se deberia crear', () => {
     expect(component).toBeTruthy();
   });
 
-  it('formulario es invalido cuando esta vacio', () => {
+  it('Pelicula formalario deberia ser invalido cuando esta vacio', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
   });
 
-  it('Registrando pelicula', () => {
+  it('Pelicula Formulario deberia crear y guardar', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
     component.peliculaForm.controls.titulo.setValue('PeliculaPrueba');
     component.peliculaForm.controls.director.setValue('directorPrueba');
-    expect(component.peliculaForm.valid).toBeTruthy();
-
+    fixture.detectChanges();
     component.onSubmit();
-
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+    expect(component.peliculaForm.valid).toBeTruthy();
   });
 });
