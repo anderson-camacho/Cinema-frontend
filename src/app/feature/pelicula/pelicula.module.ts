@@ -1,5 +1,4 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
+import { CoreModule } from './../../core/core.module';
 import { EditarPeliculaComponent } from './components/editar-pelicula/editar-pelicula.component';
 import { NgModule } from '@angular/core';
 import { PeliculaRoutingModule } from './pelicula-routing.module';
@@ -9,6 +8,7 @@ import { CrearPeliculaComponent } from './components/crear-pelicula/crear-pelicu
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { SharedModule } from '@shared/shared.module';
 import { PeliculaService } from './shared/service/pelicula.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,10 +20,9 @@ import { PeliculaService } from './shared/service/pelicula.service';
     PeliculaComponent
   ],
   imports: [
+    CoreModule,
     PeliculaRoutingModule,
     SharedModule,
-    BrowserModule,
-    FormsModule,
     ReactiveFormsModule
   ],
   providers: [PeliculaService]
