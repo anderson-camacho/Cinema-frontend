@@ -28,8 +28,8 @@ describe('Pruebas PeliculaService', () => {
 
   it('Prueba de gestion', () => {
     const dummyPeliculas = [
-      new PeliculaTestDataBuilder().build(),
-      new PeliculaTestDataBuilder().build()
+      new PeliculaTestDataBuilder("Pelicula 1", "Director 1").build(),
+      new PeliculaTestDataBuilder("Director 2", "Pelicula 2").build()
     ];
     service.consultarPelicula().subscribe(peliculas => {
       expect(peliculas.length).toBe(2);
