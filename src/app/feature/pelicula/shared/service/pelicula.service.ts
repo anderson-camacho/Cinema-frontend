@@ -1,7 +1,7 @@
 import { environment } from 'src/environments/environment';
 import { Pelicula } from './../model/pelicula';
 import { HttpService } from '@core-service/http.service';
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 export abstract class PeliculaServiceImplement {
   public abstract consultarPelicula();

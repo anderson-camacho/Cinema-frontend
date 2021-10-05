@@ -1,5 +1,5 @@
 import { IPelicula } from './pelicula.interface';
-import { Pelicula } from "./pelicula";
+import { Pelicula } from './pelicula';
 
 export class PeliculaTestDataBuilder implements IPelicula {
   id: number;

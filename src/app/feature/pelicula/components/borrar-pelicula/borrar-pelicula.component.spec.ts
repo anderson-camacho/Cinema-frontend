@@ -30,9 +30,10 @@ describe('Pelicula Eliminar - Preubas Unitarias', () => {
             paramMap: convertToParamMap({ id: 1 })
           }
         }
-      },PeliculaService,
+      },
+        PeliculaService,
       { provide: LocationStrategy, useClass: MockLocationStrategy },
-      HttpService]
+        HttpService]
     })
       .compileComponents();
   }));

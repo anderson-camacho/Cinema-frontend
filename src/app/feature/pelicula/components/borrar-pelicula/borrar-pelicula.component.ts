@@ -22,19 +22,19 @@ export class BorrarPeliculaComponent implements OnInit {
     this.onSubmitDelete(this.peliculaId);
   }
 
-  onSubmitDelete(valueId: number ): void {
+  onSubmitDelete(valueId: number): void {
     this.peliculaService.eliminarPelicula(valueId)
-    .pipe(
-      tap(()=> this.router.navigate(['listar_pelicula'])),
-      delay(2000)
-    )
-    .subscribe(
-      data => {
-        console.log(data);
-        this.ngOnInit();
-      },
-      error => { console.log(error) }
-    );
+      .pipe(
+        tap(() => this.router.navigate(['listar_pelicula'])),
+        delay(2000)
+      )
+      .subscribe(
+        data => {
+          console.log(data);
+          this.ngOnInit();
+        },
+        error => { console.log(error); }
+      );
 
   }
 

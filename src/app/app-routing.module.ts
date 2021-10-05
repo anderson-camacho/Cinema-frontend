@@ -9,12 +9,12 @@ import { ListarPeliculaComponent } from '@pelicula/components/listar-pelicula/li
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'pelicula', loadChildren: () => import('@pelicula/pelicula.module').then(mod => mod.PeliculaModule)},
-  { path: 'crear_pelicula', component:CrearPeliculaComponent},
-  { path: 'listar_pelicula', component:ListarPeliculaComponent},
-  { path: 'eliminar_pelicula/:id', component:BorrarPeliculaComponent},
-  { path: 'editar_pelicula/:id', component:EditarPeliculaComponent}
+  { path: 'home', component: HomeComponent, canActivate: [SecurityGuard] },
+  { path: 'pelicula', loadChildren: () => import('@pelicula/pelicula.module').then(mod => mod.PeliculaModule) },
+  { path: 'crear_pelicula', component: CrearPeliculaComponent },
+  { path: 'listar_pelicula', component: ListarPeliculaComponent },
+  { path: 'eliminar_pelicula/:id', component: BorrarPeliculaComponent },
+  { path: 'editar_pelicula/:id', component: EditarPeliculaComponent }
 
 ];
 

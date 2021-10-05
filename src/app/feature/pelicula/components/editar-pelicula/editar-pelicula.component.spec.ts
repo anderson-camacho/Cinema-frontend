@@ -7,17 +7,17 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
-import { ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Pelicula } from '@pelicula/shared/model/pelicula';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 
 describe('Peliculas Editar - Pruebas Unitarias', () => {
   let component: EditarPeliculaComponent;
   let fixture: ComponentFixture<EditarPeliculaComponent>;
-  let dummyPelicula: Pelicula = new Pelicula({
+  const dummyPelicula: Pelicula = new Pelicula({
     id: 1,
-    titulo: "Anderson",
-    director: "lorem impsunm"
+    titulo: 'Pelicula Lorem Impsum',
+    director: 'lorem impsunm'
   });
 
   beforeEach(waitForAsync(() => {
@@ -41,11 +41,11 @@ describe('Peliculas Editar - Pruebas Unitarias', () => {
       {
         provide: PeliculaService, useValue: {
           consultarByIdPelicula: (_pelicula: Pelicula) => {
-            return of(dummyPelicula)
+            return of(dummyPelicula);
           }
         },
       },
-      HttpService],
+        HttpService],
     })
       .compileComponents();
   }));
