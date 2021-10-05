@@ -1,12 +1,12 @@
 import { IPelicula } from './pelicula.interface';
-export class Pelicula implements IPelicula{
+export class Pelicula{
   id: number;
   titulo: string;
   director: string;
 
-  constructor(id: number, titulo: string, director: string) {
-    this.id = id;
-    this.titulo = titulo;
-    this.director = director;
+  constructor(pelicula: IPelicula) {
+    this.id = pelicula.id;
+    this.titulo = pelicula.titulo;
+    this.director = pelicula.director;
   }
 }
