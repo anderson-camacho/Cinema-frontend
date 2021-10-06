@@ -6,6 +6,7 @@ import { BorrarPeliculaComponent } from '@pelicula/components/borrar-pelicula/bo
 import { CrearPeliculaComponent } from '@pelicula/components/crear-pelicula/crear-pelicula.component';
 import { EditarPeliculaComponent } from '@pelicula/components/editar-pelicula/editar-pelicula.component';
 import { ListarPeliculaComponent } from '@pelicula/components/listar-pelicula/listar-pelicula.component';
+import { CrearUsuarioComponent } from './feature/usuario/components/crear-usuario/crear-usuario.component';
 import { ListarUsuarioComponent } from './feature/usuario/components/listar-usuario/listar-usuario.component';
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
 
   //Usuario o Cliente
   { path: 'usuario', loadChildren: () => import('./feature/usuario/usuario.module').then(mod => mod.UsuarioModule) },
-  { path: 'listar_usuario', component: ListarUsuarioComponent }
+  { path: 'listar_usuario', component: ListarUsuarioComponent },
+  { path: 'crear_usuario', component: CrearUsuarioComponent }
 ];
 
 @NgModule({

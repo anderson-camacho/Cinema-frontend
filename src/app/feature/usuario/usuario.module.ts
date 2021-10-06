@@ -6,9 +6,11 @@ import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListarUsuarioComponent } from './components/listar-usuario/listar-usuario.component';
 import { UsuarioRoutingModule } from './usuario-routing.module';
+import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
 @NgModule({
   declarations: [
     ListarUsuarioComponent,
+    CrearUsuarioComponent,
     UsuarioComponent
   ],
   imports: [
