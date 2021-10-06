@@ -6,8 +6,8 @@ export class UsuarioTestDataBuilder {
   nombre: string;
   fechaCreacion: Date;
 
-  constructor(usuario: IUsuario) {
-    this.nombre = usuario.nombre;
+  constructor(nombre: string) {
+    this.nombre = nombre;
   }
 
   setID(usuario: IUsuario) {
