@@ -19,10 +19,9 @@
     <thead>
       <tr>
         <th class="col-md-1">Codigo Pelicula</th>
-        <th>Titulo Pelicula</th>
-        <th class="col-md-3">Director Pelicula</th>
-        <th>Actualizar</th>
-        <th>Eliminar</th>
+        <th class="col-md-3">Titulo Pelicula</th>
+        <th class="col-md-2">Director Pelicula</th>
+        <th class="col-md-1">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -35,11 +34,9 @@
           id = "linkActualizarPelicula"
             (click)="onSubmitUpdate(item)"
             type="button"
-            class="btn btn-primary"
+            class="btn btn-primary form-control"
             >Actualizar</a>
-        </td>
-        <td>
-          <a id = "linkEliminarPelicula" (click)="onSubmitDelete(item)" type="button" class="btn btn-danger"
+          <a id = "linkEliminarPelicula" (click)="onSubmitDelete(item)" type="button" class="btn btn-danger form-control"
             >Eliminar</a
           >
         </td>
