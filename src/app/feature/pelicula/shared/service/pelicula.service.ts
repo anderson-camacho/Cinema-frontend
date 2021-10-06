@@ -40,5 +40,4 @@ export class PeliculaService extends PeliculaServiceImplement {
   public eliminarPelicula(peliculaId: number) {
     return this.http.doDelete<boolean>(`${environment.endpoint}/peliculas/${peliculaId}`, this.http.optsName('eliminar peliculas'));
   }
-
 }
