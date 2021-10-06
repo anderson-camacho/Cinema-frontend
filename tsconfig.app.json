@@ -20,8 +20,8 @@
       "@pelicula/*": [
         "src/app/feature/pelicula/*"
       ],
-      "@cliente/*": [
-        "src/app/feature/cliente/*"
+      "@usuario/*": [
+        "src/app/feature/usuario/*"
       ],
       "@reserva/*": [
         "src/app/feature/reserva/*"
