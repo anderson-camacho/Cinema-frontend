@@ -35,6 +35,12 @@
       ],
       "@pelicula/*": [
         "src/app/feature/pelicula/*"
+      ],
+      "@cliente/*": [
+        "src/app/feature/pelicula/*"
+      ],
+      "@reserva/*": [
+        "src/app/feature/pelicula/*"
       ]
     }
   },
