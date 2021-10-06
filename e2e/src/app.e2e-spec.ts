@@ -1,7 +1,7 @@
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
+describe('Aplicacion Cinema', () => {
   let page: AppPage;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Angular Seed');
+    expect(page.getTitleText()).toEqual('CINEMA');
   });
 
   afterEach(async () => {
