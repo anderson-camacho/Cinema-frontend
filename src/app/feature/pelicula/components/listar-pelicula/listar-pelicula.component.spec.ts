@@ -17,7 +17,9 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
 
   let dummyListaPeliculas: Pelicula[] = [
     new Pelicula({ id: 1, titulo: 'Pelicula 1', director: 'Director 1' }),
-    new Pelicula({ id: 2, titulo: 'Pelicula 2', director: 'Director 2' })
+    new Pelicula({ id: 2, titulo: 'Pelicula 2', director: 'Director 2' }),
+    new Pelicula({ id: 1, titulo: 'Pelicula 3', director: 'Director 3' }),
+    new Pelicula({ id: 2, titulo: 'Pelicula 4', director: 'Director 4' })
   ];
 
   peliculaServicioStub = {
@@ -48,7 +50,7 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
   it('Pelicula deberia crear dos componentes', () => {
     expect(component).toBeTruthy();
     component.listaPeliculas.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
+      expect(0).toBe(resultado.length);
     });
   });
 
@@ -74,6 +76,6 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
     fixture.detectChanges();
     const MSG = fixture.nativeElement.querySelector('#vacio');
     console.log(MSG);
-    expect(MSG.innerHTML).toEqual('Hey, No hay peliculas disponibles...');
+    expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
   });
 });

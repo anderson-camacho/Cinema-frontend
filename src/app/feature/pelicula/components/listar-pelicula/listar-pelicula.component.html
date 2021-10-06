@@ -2,7 +2,7 @@
 <br />
 <div type="container" class="col-auto container d-grid gap-2 font-weight-bold">
   <button
-    id="linkCrearPelicula"
+    id="linkCrearPeliculaLista"
     routerLink="/crear_pelicula"
     type="button"
     class="btn btn-dark"
@@ -26,20 +26,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listaPeliculas | async" class="table-active">
+      <tr id="linkBodyListaPeliculas" *ngFor="let item of listaPeliculas | async" class="table-active">
         <td>{{ item.id }}</td>
         <td>{{ item.titulo }}</td>
         <td>{{ item.director }}</td>
         <td>
           <a
+          id = "linkActualizarPelicula"
             (click)="onSubmitUpdate(item)"
             type="button"
             class="btn btn-primary"
-            >Actualizar</a
-          >
+            >Actualizar</a>
         </td>
         <td>
-          <a (click)="onSubmitDelete(item)" type="button" class="btn btn-danger"
+          <a id = "linkEliminarPelicula" (click)="onSubmitDelete(item)" type="button" class="btn btn-danger"
             >Eliminar</a
           >
         </td>
@@ -47,6 +47,8 @@
     </tbody>
   </table>
 </div>
-<div *ngIf="!(listaPeliculas|async)?.length" class="container">
-  <div id="vacio" class = "alert alert-danger"  role = "alert" >Hey, No hay peliculas disponibles...</div>
+<div *ngIf="!(listaPeliculas | async)?.length" class="container">
+  <div id="vacio" class="alert alert-danger" role="alert">
+    Hey, No hay peliculas disponibles...
+  </div>
 </div>
