@@ -4,15 +4,16 @@ import { NgModule } from "@angular/core";
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PeliculaRoutingModule } from '@pelicula/pelicula-routing.module';
-
+import { ListarUsuarioComponent } from './components/listar-usuario/listar-usuario.component';
+import { UsuarioRoutingModule } from './usuario-routing.module';
 @NgModule({
   declarations: [
+    ListarUsuarioComponent,
     UsuarioComponent
   ],
   imports: [
     CoreModule,
-    PeliculaRoutingModule,
+    UsuarioRoutingModule,
     SharedModule,
     ReactiveFormsModule
   ],

@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -8,7 +9,6 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PeliculaModule } from '@pelicula/pelicula.module';
 import { UsuarioModule } from './feature/usuario/usuario.module';
-
 
 
 

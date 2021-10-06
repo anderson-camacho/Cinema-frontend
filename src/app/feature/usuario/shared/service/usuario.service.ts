@@ -20,6 +20,7 @@ export abstract class UsuarioServiceImplement {
 @Injectable()
 export class UsuarioService extends UsuarioServiceImplement {
   constructor(protected http: HttpService) { super(); }
+
   public consultarUsuario() {
     return this.http.doGet<Usuario[]>(`${environment.endpoint}/usuarios`, this.http.optsName('Consultar Usuarios'));
   }
