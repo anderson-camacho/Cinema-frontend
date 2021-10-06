@@ -35,6 +35,9 @@
       ],
       "@pelicula/*": [
         "src/app/feature/pelicula/*"
+      ],
+      "@usuario/*": [
+        "src/app/feature/usuario/*"
       ]
     }
   },
