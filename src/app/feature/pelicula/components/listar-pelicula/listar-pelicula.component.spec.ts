@@ -50,7 +50,7 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
   it('Pelicula deberia crear dos componentes', () => {
     expect(component).toBeTruthy();
     component.listaPeliculas.subscribe(resultado => {
-      expect(4).toBe(resultado.length);
+      expect(resultado).toEqual(dummyListaPeliculas);
     });
   });
 
