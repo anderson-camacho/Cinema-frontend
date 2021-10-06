@@ -2,7 +2,7 @@ import { IUsuario } from "./usuario.interface";
 export class Usuario {
   id: number;
   nombre: string;
-  fechaCreacion: Date;
+  fechaCreacion: string;
 
   constructor(usuario: IUsuario) {
     this.id = usuario.id;

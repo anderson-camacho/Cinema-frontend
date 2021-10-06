@@ -1,21 +1,20 @@
 import { Usuario } from "./usuario";
-import { IUsuario } from "./usuario.interface";
 
 export class UsuarioTestDataBuilder {
   id: number;
   nombre: string;
-  fechaCreacion: Date;
+  fechaCreacion: string;
 
   constructor(nombre: string) {
     this.nombre = nombre;
   }
 
-  setID(usuario: IUsuario) {
-    this.id = usuario.id;
+  setID(id: number) {
+    this.id = id;
   }
 
-  setNombre(usuario: IUsuario) {
-    this.fechaCreacion = usuario.fechaCreacion;
+  setFechaCreacion(fechaCreacion: string) {
+    this.fechaCreacion = fechaCreacion;
   };
 
   build(): Usuario{
