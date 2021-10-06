@@ -1,7 +1,6 @@
 import { PeliculaService } from './../../shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-
 import { ListarPeliculaComponent } from './listar-pelicula.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
