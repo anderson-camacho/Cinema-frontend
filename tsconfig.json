@@ -37,12 +37,14 @@
         "src/app/feature/pelicula/*"
       ],
       "@cliente/*": [
-        "src/app/feature/pelicula/*"
+        "src/app/feature/cliente/*"
       ],
       "@reserva/*": [
-        "src/app/feature/pelicula/*"
+        "src/app/feature/reserva/*"
+      ],
+      "@horario/*": [
+        "src/app/feature/horario/*"
       ]
-    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
