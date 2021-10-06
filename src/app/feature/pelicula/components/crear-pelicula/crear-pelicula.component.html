@@ -7,7 +7,7 @@
         <input
           validar
           type="text"
-          id="tituloPelicula"
+          id="linkInputTituloCrearPelicula"
           name="titulo"
           placeholder="Titulo de la Pelicula"
           formControlName="titulo"
@@ -18,7 +18,7 @@
         <input
           validar
           type="text"
-          id="directorPelicula"
+          id="linkInputDirectorCrearPelicula"
           name="director"
           placeholder="Director de la Pelicula"
           class="form-control"
@@ -27,7 +27,7 @@
       </div>
     </div>
     <br>
-      <button [disabled]="!registrarForm.form.valid" type="submit" class="btn btn-dark mb-3" (click)="onSubmit()" >
+      <button id = "linkBotonCrear" [disabled]="!registrarForm.form.valid" type="submit" class="btn btn-dark mb-3" (click)="onSubmit()" >
         Crear
       </button>
   </form>

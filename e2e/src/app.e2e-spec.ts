@@ -8,7 +8,7 @@ describe('Aplicacion Cinema', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('Debe mostrar el titulo de la pagina', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('CINEMA');
   });

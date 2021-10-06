@@ -1,4 +1,3 @@
-import { Pelicula } from './../../shared/model/pelicula';
 import { PeliculaService } from './../../shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
@@ -8,12 +7,26 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
+import { Pelicula } from './../../shared/model/pelicula';
 
-describe('ListarPeliculaComponent', () => {
+describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
   let component: ListarPeliculaComponent;
   let fixture: ComponentFixture<ListarPeliculaComponent>;
-  let peliculaService: PeliculaService;
-  const listaPeliculas: Pelicula[] = [new Pelicula(1, 'Pelicula 1', 'Anderson'), new Pelicula(2, 'Pelicula 2', 'Ana')];
+
+  let peliculaServicioStub: Partial<PeliculaService>;
+
+  let dummyListaPeliculas: Pelicula[] = [
+    new Pelicula({ id: 1, titulo: 'Pelicula 1', director: 'Director 1' }),
+    new Pelicula({ id: 2, titulo: 'Pelicula 2', director: 'Director 2' }),
+    new Pelicula({ id: 3, titulo: 'Pelicula 3', director: 'Director 3' }),
+    new Pelicula({ id: 4, titulo: 'Pelicula 4', director: 'Director 4' })
+  ];
+
+  peliculaServicioStub = {
+    consultarPelicula: () => {
+      return of(dummyListaPeliculas);
+    }
+  };
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -23,7 +36,7 @@ describe('ListarPeliculaComponent', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [PeliculaService, HttpService]
+      providers: [{ provide: PeliculaService, HttpService, useValue: peliculaServicioStub }]
     })
       .compileComponents();
   }));
@@ -31,18 +44,38 @@ describe('ListarPeliculaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ListarPeliculaComponent);
     component = fixture.componentInstance;
-    peliculaService = TestBed.inject(PeliculaService);
-    spyOn(peliculaService, 'consultarPelicula').and.returnValue(
-      of(listaPeliculas)
-    );
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Pelicula deberia crear dos componentes', () => {
     expect(component).toBeTruthy();
     component.listaPeliculas.subscribe(resultado => {
-      expect(2).toBe(resultado.length);
+      expect(4).toBe(resultado.length);
+    });
   });
-});
 
+  it('Pelicula deberia listar el componente', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('Pelicula no debe listar el componente', () => {
+    expect(!component).toBeFalsy();
+  });
+
+  it('Pelicula deberia listar las peliculas registradas', () => {
+    component.ngOnInit();
+
+    component.listaPeliculas.subscribe(respuesta => {
+      expect(respuesta).toEqual(dummyListaPeliculas);
+    });
+  });
+
+  it('Pelicula deberia mostrar alerta sin peliculas registradas', () => {
+    dummyListaPeliculas = [];
+    component.ngOnInit();
+    fixture.detectChanges();
+    const MSG = fixture.nativeElement.querySelector('#vacio');
+    console.log(MSG);
+    expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
+  });
 });

@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PeliculaService } from './../../shared/service/pelicula.service';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Pelicula } from '@pelicula/shared/model/pelicula';
 import { delay, tap } from 'rxjs/operators';
 
@@ -23,23 +23,22 @@ export class CrearPeliculaComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("paso por onSubmit",this.peliculaForm.value );
     this.peliculaService.guardarPelicula(this.peliculaForm.value)
-    .pipe(
-      tap(()=> this.router.navigate(['listar_pelicula'])),
-      delay(2000)
-    )
-    .subscribe(
-      data => {console.log(data)},
-      error => {console.log(error)}
-    );
+      .pipe(
+        tap(() => this.router.navigate(['listar_pelicula'])),
+        delay(2000)
+      )
+      .subscribe(
+        data => { console.log(data); },
+        error => { console.log(error); }
+      );
   }
 
   private construirFormularioPelicula() {
     this.peliculaForm = new FormGroup({
       titulo: new FormControl('', [Validators.required]),
       director: new FormControl('', [Validators.required, Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
-                                                          Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
+      Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO)])
     });
   }
 
