@@ -38,6 +38,12 @@
       ],
       "@usuario/*": [
         "src/app/feature/usuario/*"
+      ],
+      "@reserva/*": [
+        "src/app/feature/reserva/*"
+      ],
+      "@horario/*": [
+        "src/app/feature/horario/*"
       ]
     }
   },
