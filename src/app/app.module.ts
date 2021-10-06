@@ -7,6 +7,7 @@ import { HomeComponent } from '@home/home.component';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PeliculaModule } from '@pelicula/pelicula.module';
+import { UsuarioModule } from './feature/usuario/usuario.module';
 
 
 
@@ -20,6 +21,7 @@ import { PeliculaModule } from '@pelicula/pelicula.module';
     BrowserModule,
     AppRoutingModule,
     PeliculaModule,
+    UsuarioModule,
     CoreModule
   ],
   providers: [CookieService],
