@@ -1,13 +1,13 @@
 <div class="text-center">
-  <h1>Registrar Usuario</h1>
+  <h1>Modificar Usuario</h1>
   <form action="container" [formGroup]="usuarioForm" #registrarForm="ngForm">
-    <legend>Registra los datos de la Usuario</legend>
+    <legend>Modifica los datos de la Usuario</legend>
     <div>
       <div>
         <input
           validar
           type="text"
-          id="linkInputNombreCrearUsuario"
+          id="linkInputNombreEditarUsuario"
           name="nombre"
           placeholder="Nombre de la Usuario"
           formControlName="nombre"
@@ -16,12 +16,11 @@
       </div>
     </div>
     <br>
-      <button id = "linkBotonCrear"
+      <button id = "linkBotonEditarUsuario"
       [disabled]="!registrarForm.form.valid"
-      type="submit"
-      class="btn btn-dark mb-3"
-      (click)="onSubmit()" >
-        Crear
+      type="submit" class="btn btn-dark mb-3"
+      (click)="onSubmitActualizarUsuario()" >
+        Editar
       </button>
   </form>
 </div>

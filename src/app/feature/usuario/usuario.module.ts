@@ -1,3 +1,4 @@
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { UsuarioService } from './shared/service/usuario.service';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { NgModule } from "@angular/core";
@@ -11,6 +12,7 @@ import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.
   declarations: [
     ListarUsuarioComponent,
     CrearUsuarioComponent,
+    EditarUsuarioComponent,
     UsuarioComponent
   ],
   imports: [
