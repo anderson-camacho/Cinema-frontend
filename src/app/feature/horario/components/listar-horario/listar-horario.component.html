@@ -1,0 +1,49 @@
+<h1 class="text-center">Horarios</h1>
+<br />
+<div
+  type="container"
+  class="col-auto container d-grid gap-2 font-weight-bold"
+></div>
+<br />
+<div id="horarios" class="container table-responsive">
+  <table class="table align-middle table-dark table-striped">
+    <caption>
+      Lista de Horarios
+    </caption>
+    <thead>
+      <tr>
+        <th id="columnaCodigo" class="col-md-2">Codigo</th>
+        <th id="columnaPelicula" class="col-md-2">Pelicula</th>
+        <th id="columnaFecha" class="col-md-2">Fecha</th>
+        <th id="columnaCupos" class="col-md-2">Cupos</th>
+        <th id="Acciones" class="col-md-1">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        id="linkBodyListaHorarios"
+        *ngFor="let item of listaHorarios | async"
+        class="table-active"
+      >
+        <td>{{ item.id }}</td>
+        <td>{{ item.idPelicula }}</td>
+        <td>{{ item.fecha }}</td>
+        <td>{{ item.cupos }}</td>
+        <td>
+          <a
+            id="linkEliminarHorario"
+            (click)="onSubmitDeleteHorario(item)"
+            type="button"
+            class="btn btn-danger form-control"
+            >Eliminar</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!(listaHorarios | async)?.length" class="container">
+  <div id="vacio" class="alert alert-danger" role="alert">
+    Hey, No hay Horarios disponibles...
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { HorarioModule } from './feature/horario/horario.module';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -22,6 +23,7 @@ import { UsuarioModule } from './feature/usuario/usuario.module';
     AppRoutingModule,
     PeliculaModule,
     UsuarioModule,
+    HorarioModule,
     CoreModule
   ],
   providers: [CookieService],

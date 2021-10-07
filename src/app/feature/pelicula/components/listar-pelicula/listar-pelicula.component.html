@@ -30,6 +30,12 @@
         <td>{{ item.titulo }}</td>
         <td>{{ item.director }}</td>
         <td>
+          <a id = "linkEliminarPelicula"
+          (click)="onSubmitCreateHorario(item)"
+          type="button"
+          class="btn btn-success form-control"
+            >Crear Horario</a
+          >
           <a
           id = "linkActualizarPelicula"
             (click)="onSubmitUpdate(item)"

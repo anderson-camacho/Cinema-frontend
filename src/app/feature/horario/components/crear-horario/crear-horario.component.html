@@ -1,0 +1,35 @@
+<div class="text-center">
+  <h1>Registrar Horario</h1>
+  <form action="container" [formGroup]="horarioForm" #registrarForm="ngForm">
+    <legend>Registra los datos del horario</legend>
+    <div class="row g-2">
+      <div class="col-sm-6">
+        <input
+          validar
+          type="date"
+          value = "yyyy-mm-dd"
+          id="linkInputNombreCrearHorario"
+          name="fecha"
+          placeholder="fecha del fecha del horario"
+          formControlName="fecha"
+          class="form-control"
+        />
+      </div>
+      <div class="col-sm-6">
+        <input
+          validar
+          type="number"
+          id="linkInputCuposCrearHorario"
+          name="cupos"
+          placeholder="Cupos del Horario"
+          class="form-control"
+          formControlName="cupos"
+        />
+      </div>
+    </div>
+    <br>
+      <button id = "linkBotonCrear" [disabled]="!registrarForm.form.valid" type="submit" class="btn btn-dark mb-3" (click)="onSubmit()" >
+        Crear
+      </button>
+  </form>
+</div>
