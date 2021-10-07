@@ -10,6 +10,7 @@ import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { PeliculaModule } from '@pelicula/pelicula.module';
 import { UsuarioModule } from './feature/usuario/usuario.module';
+import { ReservaModule } from '@reserva/reserva.module';
 
 
 
@@ -24,6 +25,7 @@ import { UsuarioModule } from './feature/usuario/usuario.module';
     PeliculaModule,
     UsuarioModule,
     HorarioModule,
+    ReservaModule,
     CoreModule
   ],
   providers: [CookieService],

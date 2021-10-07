@@ -34,4 +34,11 @@ export class ListarHorarioComponent implements OnInit {
 
   }
 
+  onSubmitAdd(horario: Horario): void {
+    console.log(horario.id);
+    localStorage.setItem("idHorario", horario.id.toString());
+    this.router.navigate([`crear_reserva`]);
+
+  }
+
 }

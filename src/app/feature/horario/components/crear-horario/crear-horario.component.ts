@@ -14,11 +14,13 @@ export class CrearHorarioComponent implements OnInit {
   horarioForm: FormGroup;
   horario = {} as Horario;
   horarioId: number;
+  date;
   constructor(protected horarioService: HorarioService, private router: Router) { }
 
   ngOnInit() {
     this.construirFormularioHorario();
     this.horarioId = Number(localStorage.getItem("idPelicula"));
+    this.date = new Date().toISOString().slice(0, 10);
   }
 
   onSubmit() {

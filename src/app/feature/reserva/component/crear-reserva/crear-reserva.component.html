@@ -1,0 +1,27 @@
+<div class="text-center">
+  <h1>Registrar Reserva</h1>
+  <form action="container" [formGroup]="reservaForm" #registrarForm="ngForm">
+    <legend>Registra los datos de la reserva</legend>
+    <div>
+      <div>
+        <input
+          validar
+          type="number"
+          id="linkInputNombreCrearReserva"
+          name="nombre"
+          placeholder="Numero de la Reserva"
+          formControlName="idUsuario"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <br>
+      <button id = "linkBotonCrearReserva"
+      [disabled]="!registrarForm.form.valid"
+      type="submit"
+      class="btn btn-dark mb-3"
+      (click)="onSubmitCrearReserva()" >
+        Crear
+      </button>
+  </form>
+</div>

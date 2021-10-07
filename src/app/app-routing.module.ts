@@ -1,4 +1,5 @@
-import { ListarHorarioComponent } from './feature/horario/components/listar-horario/listar-horario.component';
+import { ListarReservaComponent } from './feature/reserva/component/listar-reserva/listar-reserva.component';
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SecurityGuard } from '@core/guard/security.guard';
@@ -10,8 +11,8 @@ import { CrearUsuarioComponent } from '@usuario/components/crear-usuario/crear-u
 import { EditarUsuarioComponent } from '@usuario/components/editar-usuario/editar-usuario.component';
 import { ListarUsuarioComponent } from '@usuario/components/listar-usuario/listar-usuario.component';
 import { CrearHorarioComponent } from '@horario/components/crear-horario/crear-horario.component';
-
-// import { EditarHorarioComponent } from '@horario/components/editar-horario/editar-horario.component';
+import { ListarHorarioComponent } from './feature/horario/components/listar-horario/listar-horario.component';
+import { CrearReservaComponent } from '@reserva/component/crear-reserva/crear-reserva.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,7 +34,11 @@ const routes: Routes = [
   { path: 'horario', loadChildren: () => import('@horario/horario.module').then(mod => mod.HorarioModule) },
   { path: 'listar_horario', component: ListarHorarioComponent },
   { path: 'crear_horario', component: CrearHorarioComponent },
-  // { path: 'editar_horario/:id', component: EditarHorarioComponent }
+
+  //Reserva
+  { path: 'reserva', loadChildren: () => import('@reserva/reserva.module').then(mod => mod.ReservaModule) },
+  { path: 'listar_reserva', component: ListarReservaComponent },
+  { path: 'crear_reserva', component: CrearReservaComponent},
 ];
 
 @NgModule({

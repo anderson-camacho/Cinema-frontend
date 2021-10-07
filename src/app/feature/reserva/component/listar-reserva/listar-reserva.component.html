@@ -1,0 +1,38 @@
+<h1 class="text-center">Reservas</h1>
+<br />
+
+<br />
+<div id="reservas" class="container table-responsive">
+  <table class="table align-middle table-dark table-striped">
+    <caption>
+      Lista de Reservas
+    </caption>
+    <thead>
+      <tr>
+        <th id= "Codigo" class="col-md-1">Codigo</th>
+        <th id= "Usuario" class="col-md-4">Usuario</th>
+        <th id= "Horario" class="col-md-1">Horario</th>
+        <th id= "Acciones" class="col-md-1">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="linkBodyListaReservas" *ngFor="let item of listaReservas | async" class="table-active">
+        <td>{{ item.id }}</td>
+        <td>{{ item.idUsuario }}</td>
+        <td>{{ item.idHorario }}</td>
+        <td>
+          <a id = "linkEliminarReserva"
+          (click)="onSubmitDelete(item)"
+          type="button"
+          class="btn btn-danger form-control"
+            >Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="!(listaReservas | async)?.length" class="container">
+  <div id="vacio" class="alert alert-danger" role="alert">
+    Hey, No hay reservas disponibles...
+  </div>
+</div>
