@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'editar_pelicula/:id', component: EditarPeliculaComponent },
 
   //Usuario o Cliente
-  { path: 'usuario', loadChildren: () => import('./feature/usuario/usuario.module').then(mod => mod.UsuarioModule) },
+  { path: 'usuario', loadChildren: () => import('@usuario/usuario.module').then(mod => mod.UsuarioModule) },
   { path: 'listar_usuario', component: ListarUsuarioComponent },
   { path: 'crear_usuario', component: CrearUsuarioComponent },
   { path: 'editar_usuario/:id', component: EditarUsuarioComponent }
