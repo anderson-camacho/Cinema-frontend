@@ -2,7 +2,6 @@ import { of } from 'rxjs';
 import { EditarPeliculaComponent } from '@pelicula/components/editar-pelicula/editar-pelicula.component';
 import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -14,6 +13,7 @@ import { ActivatedRoute, convertToParamMap } from '@angular/router';
 describe('Peliculas Editar - Pruebas Unitarias', () => {
   let component: EditarPeliculaComponent;
   let fixture: ComponentFixture<EditarPeliculaComponent>;
+
   const dummyPelicula: Pelicula = new Pelicula({
     id: 1,
     titulo: 'Pelicula Lorem Impsum',

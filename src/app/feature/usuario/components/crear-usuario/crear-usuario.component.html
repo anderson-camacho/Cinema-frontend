@@ -1,0 +1,27 @@
+<div class="text-center">
+  <h1>Registrar Usuario</h1>
+  <form action="container" [formGroup]="usuarioForm" #registrarForm="ngForm">
+    <legend>Registra los datos de la Usuario</legend>
+    <div>
+      <div>
+        <input
+          validar
+          type="text"
+          id="linkInputNombreCrearUsuario"
+          name="nombre"
+          placeholder="Nombre de la Usuario"
+          formControlName="nombre"
+          class="form-control"
+        />
+      </div>
+    </div>
+    <br>
+      <button id = "linkBotonCrear"
+      [disabled]="!registrarForm.form.valid"
+      type="submit"
+      class="btn btn-dark mb-3"
+      (click)="onSubmit()" >
+        Crear
+      </button>
+  </form>
+</div>

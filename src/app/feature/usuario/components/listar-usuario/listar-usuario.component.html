@@ -1,42 +1,42 @@
-<h1 class="text-center">Peliculas</h1>
+<h1 class="text-center">Usuarios</h1>
 <br />
 <div type="container" class="col-auto container d-grid gap-2 font-weight-bold">
   <button
-    id="linkCrearPeliculaLista"
-    routerLink="/crear_pelicula"
+    id="linkCrearUsuarioLista"
+    routerLink="/crear_usuario"
     type="button"
     class="btn btn-dark"
   >
-    Crear Pelicula
+    Crear Usuario
   </button>
 </div>
 <br />
-<div id="peliculas" class="container table-responsive">
+<div id="usaurios" class="container table-responsive">
   <table class="table align-middle table-dark table-striped">
     <caption>
-      Lista de Peliculas
+      Lista de Usuarios
     </caption>
     <thead>
       <tr>
-        <th class="col-md-1">Codigo Pelicula</th>
-        <th class="col-md-3">Titulo Pelicula</th>
-        <th class="col-md-2">Director Pelicula</th>
+        <th class="col-md-1">Codigo</th>
+        <th class="col-md-4">Nombre</th>
+        <th class="col-md-1">Fecha de Registro</th>
         <th class="col-md-1">Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr id="linkBodyListaPeliculas" *ngFor="let item of listaPeliculas | async" class="table-active">
+      <tr id="linkBodyListaUsuarios" *ngFor="let item of listaUsuarios | async" class="table-active">
         <td>{{ item.id }}</td>
-        <td>{{ item.titulo }}</td>
-        <td>{{ item.director }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.fechaCreacion }}</td>
         <td>
           <a
-          id = "linkActualizarPelicula"
+          id = "linkActualizarUsuario"
             (click)="onSubmitUpdate(item)"
             type="button"
             class="btn btn-primary form-control"
             >Actualizar</a>
-          <a id = "linkEliminarPelicula"
+          <a id = "linkEliminarUsuario"
           (click)="onSubmitDelete(item)"
           type="button"
           class="btn btn-danger form-control"
@@ -47,8 +47,8 @@
     </tbody>
   </table>
 </div>
-<div *ngIf="!(listaPeliculas | async)?.length" class="container">
+<div *ngIf="!(listaUsuarios | async)?.length" class="container">
   <div id="vacio" class="alert alert-danger" role="alert">
-    Hey, No hay peliculas disponibles...
+    Hey, No hay usuarios disponibles...
   </div>
 </div>

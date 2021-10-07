@@ -1,7 +1,6 @@
 import { PeliculaService } from './../../shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-
 import { ListarPeliculaComponent } from './listar-pelicula.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -50,7 +49,7 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
   it('Pelicula deberia crear dos componentes', () => {
     expect(component).toBeTruthy();
     component.listaPeliculas.subscribe(resultado => {
-      expect(4).toBe(resultado.length);
+      expect(resultado).toEqual(dummyListaPeliculas);
     });
   });
 
@@ -64,7 +63,6 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
 
   it('Pelicula deberia listar las peliculas registradas', () => {
     component.ngOnInit();
-
     component.listaPeliculas.subscribe(respuesta => {
       expect(respuesta).toEqual(dummyListaPeliculas);
     });
@@ -78,4 +76,11 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
     console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
   });
+
+  // it('Debe eliminar la transferencia', async () => {
+  //   service.eliminarPelicula(1).subscribe( respuesta =>{
+  //     fixture.detectChanges();
+  //     expect(respuesta).toBeTruthy();
+  //   });
+  // });
 });

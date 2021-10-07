@@ -51,22 +51,23 @@ describe('Pelicula Service Pruebas Unitarias', () => {
     req.event(new HttpResponse<boolean>({ body: true }));
   });
   it('Pelicula pruebas de gestion PUT', () => {
-    const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123'};
-    const dummyPeliculaPos = {titulo: 'pelicula456', director: 'director456'};
-    service.actualizarPelicula(dummyPeliculaPre.id, dummyPeliculaPos as Pelicula).subscribe((respuesta) => {
-      expect(respuesta).toEqual(false);
-    });
+    const dummyPeliculaPre = { id: 50, titulo: 'pelicula123', director: 'director123' };
+    const dummyPeliculaPos = { titulo: 'pelicula456', director: 'director456' };
+    service.actualizarPelicula(dummyPeliculaPre.id, dummyPeliculaPos as Pelicula)
+      .subscribe((respuesta) => {
+        expect(respuesta).toEqual(false);
+      });
     const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
     expect(req.request.method).toBe('PUT');
-    req.event(new HttpResponse<boolean>({body: false}));
+    req.event(new HttpResponse<boolean>({ body: false }));
   });
   it('Pelicula pruebas de gestion DELETE', () => {
-    const dummyPeliculaPre = {id: 50, titulo: 'pelicula123', director: 'director123' };
+    const dummyPeliculaPre = { id: 50, titulo: 'pelicula123', director: 'director123' };
     service.eliminarPelicula(dummyPeliculaPre.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
     });
     const req = httpMock.expectOne(`${apiEndpointPelicula}/${dummyPeliculaPre.id}`);
     expect(req.request.method).toBe('DELETE');
-    req.event(new HttpResponse<boolean>({body: false}));
+    req.event(new HttpResponse<boolean>({ body: false }));
   });
 });

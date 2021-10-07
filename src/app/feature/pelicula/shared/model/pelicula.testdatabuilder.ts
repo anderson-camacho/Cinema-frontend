@@ -1,7 +1,6 @@
-import { IPelicula } from './pelicula.interface';
 import { Pelicula } from './pelicula';
 
-export class PeliculaTestDataBuilder implements IPelicula {
+export class PeliculaTestDataBuilder {
   id: number;
   titulo: string;
   director: string;
