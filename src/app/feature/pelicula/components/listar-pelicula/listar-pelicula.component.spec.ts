@@ -63,7 +63,6 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
 
   it('Pelicula deberia listar las peliculas registradas', () => {
     component.ngOnInit();
-
     component.listaPeliculas.subscribe(respuesta => {
       expect(respuesta).toEqual(dummyListaPeliculas);
     });
@@ -77,4 +76,11 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
     console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
   });
+
+  // it('Debe eliminar la transferencia', async () => {
+  //   service.eliminarPelicula(1).subscribe( respuesta =>{
+  //     fixture.detectChanges();
+  //     expect(respuesta).toBeTruthy();
+  //   });
+  // });
 });

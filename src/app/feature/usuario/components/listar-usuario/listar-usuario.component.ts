@@ -18,10 +18,17 @@ export class ListarUsuarioComponent implements OnInit {
     this.listaUsuarios = this.usuarioService.consultarUsuario();
   }
 
-  onSubmitDelete(): void {
-    this.router.navigate(null);
-    // this.router.navigate([`eliminar_usuario/${usaurio.id}`]);
+  onSubmitDelete(usuario: Usuario): void {
+    this.usuarioService.eliminarUsuario(usuario.id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.ngOnInit();
+        },
+        error => { console.log(error); }
+      );
   }
+
 
   onSubmitUpdate(usuario: Usuario): void {
      this.router.navigate([`editar_usuario/${usuario.id}`]);

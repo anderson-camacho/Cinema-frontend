@@ -19,7 +19,14 @@ export class ListarPeliculaComponent implements OnInit {
   }
 
   onSubmitDelete(pelicula: Pelicula): void {
-    this.router.navigate([`eliminar_pelicula/${pelicula.id}`]);
+    this.peliculaService.eliminarPelicula(pelicula.id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.ngOnInit();
+        },
+        error => { console.log(error); }
+      );
   }
 
   onSubmitUpdate(pelicula: Pelicula): void {
