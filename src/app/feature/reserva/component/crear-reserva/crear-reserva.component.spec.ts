@@ -1,51 +1,51 @@
-// import { HttpService } from '@core-service/http.service';
-// import { UsuarioService } from '../../shared/service/usuario.service';
-// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { CommonModule } from "@angular/common";
-// import { HttpClientModule } from "@angular/common/http";
-// import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
-// import { RouterTestingModule } from "@angular/router/testing";
-// import { CrearUsuarioComponent } from "./crear-reserva.component";
+import { HttpService } from './../../../../core/services/http.service';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ReservaService } from '@reserva/shared/service/usuario.service';
+import { CrearReservaComponent } from "./crear-reserva.component";
 
-// describe('Usuario crear - Pruebas Unitarias', ()=> {
-//   let component: CrearUsuarioComponent;
-//   let fixture: ComponentFixture<CrearUsuarioComponent>;
+describe('RESERVA - {Crear}', ()=> {
+  let component: CrearReservaComponent;
+  let fixture: ComponentFixture<CrearReservaComponent>;
 
-//   beforeEach(waitForAsync(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [CrearUsuarioComponent],
-//       imports: [
-//         CommonModule,
-//         HttpClientModule,
-//         RouterTestingModule,
-//         ReactiveFormsModule,
-//         FormsModule
-//       ],
-//       providers: [UsuarioService, HttpService],
-//     })
-//       .compileComponents();
-//   }));
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [CrearReservaComponent],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule
+      ],
+      providers: [ReservaService, HttpService],
+    })
+      .compileComponents();
+  }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(CrearUsuarioComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(CrearReservaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('Usuario se deberia crear', () => {
-//     expect(component).toBeTruthy();
-//   });
+  it('RESERVA {Deberia crear componente', () => {
+    expect(component).toBeTruthy();
+  });
 
-//   it('Usuario formalario deberia ser invalido cuando esta vacio', () => {
-//     expect(component.usuarioForm.valid).toBeFalsy();
-//   });
+  it('RESERVA {Deberia ser invalido el formulario}', () => {
+    expect(component.reservaForm.valid).toBeFalsy();
+  });
 
-//   it('Usuario Formulario deberia crear y guardar', () => {
-//     expect(component.usuarioForm.valid).toBeFalsy();
-//     component.usuarioForm.controls.nombre.setValue('Anderson Camacho Palacios');
-//     fixture.detectChanges();
-//     component.onSubmit();
-//     expect(component.usuarioForm.valid).toBeTruthy();
-//   });
+  it('HORARIO {Deberia crear usuario', () => {
+    expect(component.reservaForm.valid).toBeFalsy();
+    component.reservaForm.controls.idUsuario.setValue(1);
+    fixture.detectChanges();
+    component.onSubmitCrearReserva();
+    expect(component.reservaForm.valid).toBeTruthy();
+  });
 
-// });
+});

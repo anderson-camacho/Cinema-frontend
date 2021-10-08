@@ -21,8 +21,8 @@ export class ListarReservaComponent implements OnInit {
     this.listaReservas = this.reservaService.consultarReserva();
   }
 
-  onSubmitDelete(reserva: Reserva): void {
-    this.reservaService.eliminarReserva(reserva.id)
+  onSubmitDelete(reservaId: number): void {
+    this.reservaService.eliminarReserva(reservaId)
       .subscribe(
         () => {
           this.getReseva();

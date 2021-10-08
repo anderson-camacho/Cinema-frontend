@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 
-describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
+describe('RESERVA - {Listar, Eliminar}', () => {
   const DUMMY_ID_RESERVA = 1;
   let component: ListarReservaComponent;
   let fixture: ComponentFixture<ListarReservaComponent>;
@@ -60,27 +60,21 @@ describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
     });
   });
 
+  it('RESERVA {Comprobaria que la alerta de vacio este funcional', () => {
+    dummyListaReserva = [];
+    component.getReseva();
+    fixture.detectChanges();
+    const MSG = fixture.nativeElement.querySelector('#vacio');
+    console.log(MSG);
+    expect(MSG.innerHTML).toEqual(' Hey, No hay reservas disponibles... ');
+  });
 
 
-//   it('Usuario no debe listar el componente', () => {
-//     expect(!component).toBeFalsy();
-//   });
-
-//   it('Pelicula deberia listar las peliculas registradas', () => {
-//     component.ngOnInit();
-
-//     component.listaUsuarios.subscribe(respuesta => {
-//       expect(respuesta).toEqual(dummyListaUsuarios);
-//     });
-//   });
-
-//   it('Pelicula deberia mostrar alerta sin peliculas registradas', () => {
-//     dummyListaUsuarios = [];
-//     component.ngOnInit();
-//     fixture.detectChanges();
-//     const MSG = fixture.nativeElement.querySelector('#vacio');
-//     console.log(MSG);
-//     expect(MSG.innerHTML).toEqual(' Hey, No hay usuarios disponibles... ');
-//   });
+it('RESERVA {Comprobaria que se elimino}', () => {
+  const spyReserva = spyOn(component, 'onSubmitDelete').and.callThrough();
+  component.onSubmitDelete(DUMMY_ID_RESERVA);
+  fixture.detectChanges();
+  expect(spyReserva).toHaveBeenCalled();
+});
 
 });
