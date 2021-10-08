@@ -8,7 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Pelicula } from './../../shared/model/pelicula';
 
-describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
+describe('PELICULA - {Listar}', () => {
   const DUMMY_ID_PELICULA = 1;
 
   let component: ListarPeliculaComponent;
