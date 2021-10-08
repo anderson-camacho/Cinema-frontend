@@ -73,7 +73,7 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     expect(MSG.innerHTML).toEqual(' Hey, No hay usuarios disponibles... ');
   });
 
-  it('USUARIO {Comprobaria que se eleimino}', () => {
+  it('USUARIO {Comprobaria que se elimino}', () => {
     const spyUsuario = spyOn(component, 'onSubmitDelete').and.callThrough();
     component.onSubmitDelete(DUMMY_ID_USUARIO);
     fixture.detectChanges();
