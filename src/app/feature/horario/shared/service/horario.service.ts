@@ -40,6 +40,6 @@ export class HorarioService extends HorarioServiceImplement {
   }
 
   public eliminarHorario(horarioId: number) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/horarios/${horarioId}`, this.http.optsName('Eliminar Horarios'));
+    return this.http.doDelete<number>(`${environment.endpoint}/horarios/${horarioId}`, this.http.optsName('Eliminar Horarios'));
   }
 }
