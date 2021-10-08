@@ -42,6 +42,9 @@ describe('USUARIO - {Editar}', ()=>{
         provide: UsuarioService, useValue: {
           consultarByIdUsuario: (_usuario: Usuario) => {
             return of(dummyUsuarios);
+          },
+          actualizarUsuario: (_DUMMY_ID_USUARIO) => {
+            return of(true);
           }
         },
       },
@@ -74,17 +77,13 @@ describe('USUARIO - {Editar}', ()=>{
     expect(component.usuario).toEqual(dummyUsuarios);
   });
 
-  // it('USUARIO {Deberia editar elementos}', () => {
+  it('PELICULA {Deberia enviar los datos a actualizar}', () => {
+    const spyUsuario = spyOn(component, 'onSubmitActualizarUsuario').and.callThrough();
+    component.onSubmitActualizarUsuario();
+    fixture.detectChanges();
+    expect(spyUsuario).toHaveBeenCalled();
 
-  //   let nombre = component.usuarioForm.controls['nombre'];
-
-  //   nombre.setValue('Anderson Garcia Pimineta');
-
-  //   const btnElement = fixture.debugElement.query(By.css('#linkBotonEditarUsuario'))
-  //   btnElement.nativeElement.click()
-  //   expect(component.onSubmitActualizarUsuario).toBeNull();
-
-  // });
+  });
 
 
 });
