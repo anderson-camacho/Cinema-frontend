@@ -10,6 +10,6 @@ export class AppPage {
   }
 
   currentUrl() {
-    return browser.getCurrentUrl()
+    return browser.getCurrentUrl();
   }
 }

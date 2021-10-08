@@ -1,11 +1,7 @@
 import { by, element } from 'protractor';
 
 export class PeliculaPage {
-  //Atributos
-
   //Acciones Generales Pelicula
-  //..
-
   //Acciones Listar Pelicula
   private listaPeliculas = element.all(by.id('linkBodyListaPeliculas'));
   linkPelicula = element(by.xpath('/html/body/app-root/app-navbar/nav/a[2]'));
@@ -25,7 +21,14 @@ export class PeliculaPage {
   //Elementos para Eliminar Pelicula
   private linkEliminarPeliculas = element(by.id('linkEliminarPelicula'));
 
+  //Crear Hoario
+  private linkCrearHorarioDesdePelicula = element(by.id('linkCrearHorarioDesdePelicula'));
+
+
   //Metodos
+  async clickBotonCrearHorarioDesdePelicula() {
+    await this.linkCrearHorarioDesdePelicula.click();
+  }
 
   //Metodos de accion para Listar Pelicula
   async clickBotonListarPeliculas() {
@@ -54,7 +57,6 @@ export class PeliculaPage {
   }
 
   //Metodos de accion para Editar Pelicula
-
   async clickBotonActualizarPeliculas() {
     await this.linkActualizarPeliculas.click();
   }

@@ -36,6 +36,6 @@ export class UsuarioService extends UsuarioServiceImplement {
       this.http.optsName('Actualizar Usuarios'));
   }
   public eliminarUsuario(usuarioId: number) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/usuarios/${usuarioId}`, this.http.optsName('eliminar usuarios'));
+    return this.http.doDelete<number>(`${environment.endpoint}/usuarios/${usuarioId}`, this.http.optsName('eliminar usuarios'));
   }
 }

@@ -21,10 +21,16 @@ describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
     new Usuario({ id: 4, nombre: 'Alezander Camacho Palacios', fechaCreacion: '2021-10-06' })
   ];
 
+  const DUMMY_ID_USUARIA = 1;
+
   usuarioServicioStub = {
     consultarUsuario:()=>{
       return of(dummyListaUsuarios);
+    },
+    eliminarUsuario:()=>{
+      return of(DUMMY_ID_USUARIA);
     }
+
   };
 
   beforeEach(waitForAsync(()=>{
@@ -46,19 +52,15 @@ describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
     fixture.detectChanges();
   });
 
-  it('Pelicula deberia crear dos componentes', () => {
+
+  it('Usuario deberia crear el componente', ()=>{
     expect(component).toBeTruthy();
+  });
+
+  it('Pelicula deberia listar componentes', () => {
     component.listaUsuarios.subscribe(resultado => {
       expect(resultado).toEqual(dummyListaUsuarios);
     });
-  });
-
-  it('Usuario deberia listar el componente', ()=>{
-    expect(component).toBeTruthy();
-  });
-
-  it('Usuario no debe listar el componente', () => {
-    expect(!component).toBeFalsy();
   });
 
   it('Pelicula deberia listar las peliculas registradas', () => {
@@ -78,4 +80,10 @@ describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
     expect(MSG.innerHTML).toEqual(' Hey, No hay usuarios disponibles... ');
   });
 
+  it('Pelicula deberia Eliminar', ()=>{
+    const spyUsuario = spyOn(component, 'onSubmitDelete').and.callThrough();
+    component.onSubmitDelete(DUMMY_ID_USUARIA);
+    fixture.detectChanges();
+    expect(spyUsuario).toHaveBeenCalled();
+  });
 })

@@ -69,7 +69,7 @@ describe('Peliculas Editar - Pruebas Unitarias', () => {
   });
 
   it('Pelicula deberia tener el boton de editar deshabilitado al ser formulario invalido', () => {
-    const botonGuardar = fixture.debugElement.nativeElement.querySelector('#linkBotonEditar');
+    const botonGuardar = fixture.nativeElement.querySelector('#linkBotonEditarPelicula');
     expect(botonGuardar.disabled).toBeFalse();
   });
 

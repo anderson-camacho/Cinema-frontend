@@ -10,6 +10,11 @@ export class NavbarPage {
   }
 
   async clickBotonUsuarios() {
-    await this.linkPelicula.click();
+    await this.linkUsuario.click();
   }
+
+  async clickBotonHorarios() {
+    await this.linkHome.click();
+  }
+
 }

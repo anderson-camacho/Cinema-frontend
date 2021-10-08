@@ -19,10 +19,6 @@ const routes: Routes = [
         path: 'listar',
         component: ListarHorarioComponent
       }
-      // {
-      //   path: 'editar',
-      //   component: EditarHorarioComponent
-      // }
     ]
   }
 ];

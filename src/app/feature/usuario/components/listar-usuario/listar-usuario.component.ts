@@ -15,17 +15,19 @@ export class ListarUsuarioComponent implements OnInit {
   constructor(protected usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit() {
+    this.getUsuarios();
+  }
+
+  getUsuarios(){
     this.listaUsuarios = this.usuarioService.consultarUsuario();
   }
 
-  onSubmitDelete(usuario: Usuario): void {
-    this.usuarioService.eliminarUsuario(usuario.id)
+  onSubmitDelete(usuarioId: number): void {
+    this.usuarioService.eliminarUsuario(usuarioId)
       .subscribe(
-        data => {
-          console.log(data);
-          this.ngOnInit();
-        },
-        error => { console.log(error); }
+        () => {
+          this.getUsuarios();
+        }
       );
   }
 

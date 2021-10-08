@@ -56,21 +56,21 @@ describe('Usuario Servicio Pruebas Unitarias', () => {
     const dummyUsuarioPos = { nombre: "Actualizacion" };
 
     service.actualizarUsuario(dummyUsuarioPre.id, dummyUsuarioPos as Usuario)
-    .subscribe((respuesta)=>{
-      expect(respuesta).toEqual(false);
-    });
+      .subscribe((respuesta) => {
+        expect(respuesta).toEqual(false);
+      });
     const req = httpMock.expectOne(`${apiEndpointUsuario}/${dummyUsuarioPre.id}`);
     expect(req.request.method).toBe('PUT');
-    req.event(new HttpResponse<boolean>({body: false}));
+    req.event(new HttpResponse<boolean>({ body: false }));
   });
 
   it('Pelicula pruebas de gestion DELETE', () => {
     service.eliminarUsuario(dummyUsuarioPre.id).subscribe((respuesta) => {
-      expect(respuesta).toEqual(false);
+      expect(respuesta).toEqual(1);
     });
     const req = httpMock.expectOne(`${apiEndpointUsuario}/${dummyUsuarioPre.id}`);
     expect(req.request.method).toBe('DELETE');
-    req.event(new HttpResponse<boolean>({ body: false }));
+    req.event(new HttpResponse<number>({ body: 1 }));
   });
 
 });

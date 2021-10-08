@@ -2,11 +2,7 @@ import { by, element } from 'protractor';
 
 export class UsuarioPage {
   //Atributos
-
-  //Acciones Generales Usuario
-  //..
-
-  //Acciones Listar Usuario
+  //Acciones Generales Usuario//Acciones Listar Usuario
   private listaUsuario = element.all(by.id('linkBodyListaUsuarios'));
   linkUsuario = element(by.xpath('/html/body/app-root/app-navbar/nav/a[3]'));
 
@@ -24,7 +20,6 @@ export class UsuarioPage {
   private linkEliminarUsuario = element(by.id('linkEliminarUsuario'));
 
   //Metodos
-
   //Metodos de accion para Listar Usuario
   async clickBotonListarActualizar() {
     await this.linkUsuario.click();
@@ -48,7 +43,6 @@ export class UsuarioPage {
   }
 
   //Metodos de accion para Editar Usuario
-
   async clickBotonActualizarActualizar() {
     await this.linkActualizarUsuario.click();
   }
@@ -61,9 +55,7 @@ export class UsuarioPage {
     await this.linkInputNombreEditarUsuario.sendKeys(nombreUsaurio);
   }
 
-
   //Metodos de accion para borrar Usuario
-
   async clickBotonEliminarUsuarios() {
     await this.linkEliminarUsuario.click();
   }
