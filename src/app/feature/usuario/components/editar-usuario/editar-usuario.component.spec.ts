@@ -1,5 +1,4 @@
 import { of } from 'rxjs';
-import { UsuarioService } from '@usuario/shared/service/usuario.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,8 +8,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { Usuario } from "@usuario/shared/model/usuario";
 import { ActivatedRoute, convertToParamMap } from "@angular/router";
 import { EditarUsuarioComponent } from '@usuario/components/editar-usuario/editar-usuario.component';
+import { UsuarioService } from '@usuario/shared/service/usuario.service';
 
-describe('Usuarios Editar - Pruebas Unitarias', ()=>{
+describe('USUARIO - {Editar}', ()=>{
   let component: EditarUsuarioComponent;
   let fixture: ComponentFixture<EditarUsuarioComponent>;
 
@@ -56,26 +56,35 @@ describe('Usuarios Editar - Pruebas Unitarias', ()=>{
     fixture.detectChanges();
   });
 
-  it('Usuario se deberia actualizar', () => {
+  it('USUARIO {Crearia el componente}', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Usuario no se deberia actualizar', () => {
-    expect(!component).toBeFalsy();
-  });
-
-  it('Usuario formalario deberia ser invalido cuando esta vacio', () => {
+  it('USUARIO {Deberia ser invalido el formulario cuando esta vacio}', () => {
     expect(!component.usuarioForm.valid).toBeFalsy();
   });
 
-  it('Usuario deberia tener el boton de editar deshabilitado al ser formulario invalido', () => {
+  it('USUARIO {Deberia ser invalido el boton guardar cuando el formulario es invalido}', () => {
     const botonGuardar = fixture.debugElement.nativeElement.querySelector('#linkBotonEditarUsuario');
     expect(botonGuardar.disabled).toBeFalse();
   });
 
-  it('Usuario deberia encontrar con ID', () => {
+  it('USAURIO {Deberia obtener un objeto completo de la consulta especifica}', () => {
     component.onSubmit();
     expect(component.usuario).toEqual(dummyUsuarios);
   });
+
+  // it('USUARIO {Deberia editar elementos}', () => {
+
+  //   let nombre = component.usuarioForm.controls['nombre'];
+
+  //   nombre.setValue('Anderson Garcia Pimineta');
+
+  //   const btnElement = fixture.debugElement.query(By.css('#linkBotonEditarUsuario'))
+  //   btnElement.nativeElement.click()
+  //   expect(component.onSubmitActualizarUsuario).toBeNull();
+
+  // });
+
 
 });
