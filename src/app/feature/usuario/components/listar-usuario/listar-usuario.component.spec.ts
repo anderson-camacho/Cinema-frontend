@@ -16,10 +16,10 @@ describe('USUARIO - {Listar, Eliminar}', () => {
   let usuarioServicioStub: Partial<UsuarioService>;
 
   let dummyListaUsuarios: Usuario[] = [
-    new Usuario({ id: 1, nombre: 'Juan Esteban GAlindo Hernandez', fechaCreacion: '2021-10-06' }),
+    new Usuario({ id: 1, nombre: 'Juan Esteban Galindo Hernandez', fechaCreacion: '2021-10-06' }),
     new Usuario({ id: 2, nombre: 'Aquileo Camacho Camacho', fechaCreacion: '2021-10-06' }),
     new Usuario({ id: 3, nombre: 'Aracely Hernandez Hernandez', fechaCreacion: '2021-10-06' }),
-    new Usuario({ id: 4, nombre: 'Alezander Camacho Palacios', fechaCreacion: '2021-10-06' })
+    new Usuario({ id: 4, nombre: 'Alexander Camacho Palacios', fechaCreacion: '2021-10-06' })
   ];
 
   usuarioServicioStub = {
