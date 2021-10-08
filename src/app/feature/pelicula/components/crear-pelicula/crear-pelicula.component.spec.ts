@@ -1,14 +1,13 @@
 import { CrearPeliculaComponent } from '@pelicula/components/crear-pelicula/crear-pelicula.component';
 import { PeliculaService } from '@pelicula/shared/service/pelicula.service';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe('Peliculas Crear - Pruebas Unitarias', () => {
+describe('PELICULA - {Crear}', () => {
   let component: CrearPeliculaComponent;
   let fixture: ComponentFixture<CrearPeliculaComponent>;
 
@@ -33,15 +32,15 @@ describe('Peliculas Crear - Pruebas Unitarias', () => {
     fixture.detectChanges();
   });
 
-  it('Pelicula se deberia crear', () => {
+  it('PELICULA {Deberia crear componente}', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Pelicula formalario deberia ser invalido cuando esta vacio', () => {
+  it('PELICULA {Deberia ser invalido el formulario}', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
   });
 
-  it('Pelicula Formulario deberia crear y guardar', () => {
+  it('PELICULA {Deberia crear usuario}', () => {
     expect(component.peliculaForm.valid).toBeFalsy();
     component.peliculaForm.controls.titulo.setValue('PeliculaPrueba');
     component.peliculaForm.controls.director.setValue('directorPrueba');
