@@ -9,9 +9,10 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { Pelicula } from './../../shared/model/pelicula';
 
 describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
+  const DUMMY_ID_PELICULA = 1;
+
   let component: ListarPeliculaComponent;
   let fixture: ComponentFixture<ListarPeliculaComponent>;
-
   let peliculaServicioStub: Partial<PeliculaService>;
 
   let dummyListaPeliculas: Pelicula[] = [
@@ -24,6 +25,9 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
   peliculaServicioStub = {
     consultarPelicula: () => {
       return of(dummyListaPeliculas);
+    },
+    eliminarPelicula: ()=>{
+      return of(DUMMY_ID_PELICULA);
     }
   };
 
@@ -46,29 +50,17 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
     fixture.detectChanges();
   });
 
-  it('Pelicula deberia crear dos componentes', () => {
+  it('PELICULA {Crearia el componente}', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('PELICULA {Comprobaria el componente cree la lista}', () => {
     component.listaPeliculas.subscribe(resultado => {
       expect(resultado).toEqual(dummyListaPeliculas);
     });
   });
 
-  it('Pelicula deberia listar el componente', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('Pelicula no debe listar el componente', () => {
-    expect(!component).toBeFalsy();
-  });
-
-  it('Pelicula deberia listar las peliculas registradas', () => {
-    component.ngOnInit();
-    component.listaPeliculas.subscribe(respuesta => {
-      expect(respuesta).toEqual(dummyListaPeliculas);
-    });
-  });
-
-  it('Pelicula deberia mostrar alerta sin peliculas registradas', () => {
+  it('PELICULA {Comprobaria que la alerta de vacio este funcional}', () => {
     dummyListaPeliculas = [];
     component.ngOnInit();
     fixture.detectChanges();
@@ -77,10 +69,19 @@ describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
     expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
   });
 
-  // it('Debe eliminar la transferencia', async () => {
-  //   service.eliminarPelicula(1).subscribe( respuesta =>{
-  //     fixture.detectChanges();
-  //     expect(respuesta).toBeTruthy();
-  //   });
-  // });
+  it('PELICULA {Comprobaria que el Boton reciba y envie a Actualizar}', () => {
+    const spyPelicula = spyOn(component, 'onSubmitUpdate').and.callThrough();
+    component.onSubmitUpdate(DUMMY_ID_PELICULA);
+    fixture.detectChanges();
+    fixture.checkNoChanges();
+    fixture.isStable();
+    expect(spyPelicula).toHaveBeenCalled()
+  });
+
+  it('PELICULA {Comprobaria que se elimino}', () => {
+    const spyPelicula = spyOn(component, 'onSubmitDelete').and.callThrough();
+    component.onSubmitDelete(DUMMY_ID_PELICULA);
+    fixture.detectChanges();
+    expect(spyPelicula).toHaveBeenCalled();
+  });
 });
