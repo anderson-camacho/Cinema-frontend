@@ -32,7 +32,7 @@
         <td>
           <a
           id = "linkActualizarUsuario"
-            (click)="onSubmitUpdate(item)"
+            (click)="onSubmitUpdate(item.id)"
             type="button"
             class="btn btn-primary form-control"
             >Actualizar</a>
@@ -48,7 +48,7 @@
   </table>
 </div>
 <div *ngIf="!(listaUsuarios | async)?.length" class="container">
-  <div id="vacio" class="alert alert-danger" role="alert">
+  <div id="AlertaListaDeUsauriosVacia" class="alert alert-danger" role="alert">
     Hey, No hay usuarios disponibles...
   </div>
 </div>

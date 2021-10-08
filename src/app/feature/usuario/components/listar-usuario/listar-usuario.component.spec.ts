@@ -8,10 +8,11 @@ import { UsuarioService } from '../../shared/service/usuario.service';
 import { ListarUsuarioComponent } from './listar-usuario.component';
 import { of } from 'rxjs';
 
-describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
+describe('USUARIO - {Listar, Eliminar}', () => {
+  const DUMMY_ID_USUARIO = 1;
+
   let component: ListarUsuarioComponent;
   let fixture: ComponentFixture<ListarUsuarioComponent>;
-
   let usuarioServicioStub: Partial<UsuarioService>;
 
   let dummyListaUsuarios: Usuario[] = [
@@ -21,68 +22,60 @@ describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
     new Usuario({ id: 4, nombre: 'Alezander Camacho Palacios', fechaCreacion: '2021-10-06' })
   ];
 
-  const DUMMY_ID_USUARIA = 1;
-
   usuarioServicioStub = {
-    consultarUsuario:()=>{
+    consultarUsuario: () => {
       return of(dummyListaUsuarios);
     },
-    eliminarUsuario:()=>{
-      return of(DUMMY_ID_USUARIA);
+    eliminarUsuario: () => {
+      return of(DUMMY_ID_USUARIO);
     }
-
   };
 
-  beforeEach(waitForAsync(()=>{
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ListarUsuarioComponent],
-      imports: [
-        CommonModule,
-        HttpClientModule,
-        RouterTestingModule
-      ],
-      providers:[{provide: UsuarioService, HttpService, useValue:usuarioServicioStub}]
-    })
-    .compileComponents();
+      imports: [CommonModule, HttpClientModule, RouterTestingModule],
+      providers: [{ provide: UsuarioService, HttpService, useValue: usuarioServicioStub }]
+    }).compileComponents();
   }));
 
-  beforeEach(()=>{
-    fixture=TestBed.createComponent(ListarUsuarioComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ListarUsuarioComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-
-  it('Usuario deberia crear el componente', ()=>{
+  it('USUARIO {Crearia el componente}', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Pelicula deberia listar componentes', () => {
+  it('USUARIO {Comprobaria el componente cree la lista}', () => {
     component.listaUsuarios.subscribe(resultado => {
       expect(resultado).toEqual(dummyListaUsuarios);
     });
   });
 
-  it('Pelicula deberia listar las peliculas registradas', () => {
-    component.ngOnInit();
-
-    component.listaUsuarios.subscribe(respuesta => {
-      expect(respuesta).toEqual(dummyListaUsuarios);
-    });
+  it('USUARIO {Comprobaria que el Boton reciba y envie a Actualizar}', () => {
+    const spyUsuario = spyOn(component, 'onSubmitUpdate').and.callThrough();
+    component.onSubmitUpdate(DUMMY_ID_USUARIO);
+    fixture.detectChanges();
+    fixture.checkNoChanges();
+    fixture.isStable();
+    expect(spyUsuario).toHaveBeenCalled()
   });
 
-  it('Pelicula deberia mostrar alerta sin peliculas registradas', () => {
+  it('USUARIO {Comprobaria que la alerta de vacio este funcional', () => {
     dummyListaUsuarios = [];
     component.ngOnInit();
     fixture.detectChanges();
-    const MSG = fixture.nativeElement.querySelector('#vacio');
+    const MSG = fixture.nativeElement.querySelector('#AlertaListaDeUsauriosVacia');
     console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay usuarios disponibles... ');
   });
 
-  it('Pelicula deberia Eliminar', ()=>{
+  it('USUARIO {Comprobaria que se eleimino}', () => {
     const spyUsuario = spyOn(component, 'onSubmitDelete').and.callThrough();
-    component.onSubmitDelete(DUMMY_ID_USUARIA);
+    component.onSubmitDelete(DUMMY_ID_USUARIO);
     fixture.detectChanges();
     expect(spyUsuario).toHaveBeenCalled();
   });

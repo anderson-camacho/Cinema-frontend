@@ -6,8 +6,7 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'app-listar-usuario',
-  templateUrl: './listar-usuario.component.html',
-  styleUrls: ['./listar-usuario.component.scss']
+  templateUrl: './listar-usuario.component.html'
 })
 export class ListarUsuarioComponent implements OnInit {
   public listaUsuarios: Observable<Usuario[]>;
@@ -18,7 +17,7 @@ export class ListarUsuarioComponent implements OnInit {
     this.getUsuarios();
   }
 
-  getUsuarios(){
+  getUsuarios() {
     this.listaUsuarios = this.usuarioService.consultarUsuario();
   }
 
@@ -31,9 +30,7 @@ export class ListarUsuarioComponent implements OnInit {
       );
   }
 
-
-  onSubmitUpdate(usuario: Usuario): void {
-     this.router.navigate([`editar_usuario/${usuario.id}`]);
+  onSubmitUpdate(usuarioId: number): void {
+    this.router.navigate([`editar_usuario/${usuarioId}`]);
   }
-
 }
