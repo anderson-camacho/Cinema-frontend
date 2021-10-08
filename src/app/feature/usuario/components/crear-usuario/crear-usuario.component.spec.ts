@@ -40,7 +40,7 @@ describe('USUARIO - {Crear}', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
   });
 
-  it('USUARIO {Deberia crear usaurio}', () => {
+  it('USUARIO {Deberia crear usuario}', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
     component.usuarioForm.controls.nombre.setValue('Anderson Camacho Palacios');
     fixture.detectChanges();
