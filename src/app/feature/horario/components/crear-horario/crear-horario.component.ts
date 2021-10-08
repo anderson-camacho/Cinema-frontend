@@ -19,6 +19,10 @@ export class CrearHorarioComponent implements OnInit {
 
   ngOnInit() {
     this.construirFormularioHorario();
+    this.getHorario();
+  }
+
+  getHorario(){
     this.horarioId = Number(localStorage.getItem("idPelicula"));
     this.date = new Date().toISOString().slice(0, 10);
   }
