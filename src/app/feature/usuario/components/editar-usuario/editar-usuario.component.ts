@@ -21,11 +21,12 @@ export class EditarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
     this.construirFormularioUsuario();
-    this.usuarioId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.onSubmit();
   }
 
+
   onSubmit() {
+    this.usuarioId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.usuario.id = this.usuarioId;
     this.usuarioService.consultarByIdUsuario(this.usuario.id).subscribe(
       data => {
@@ -35,17 +36,22 @@ export class EditarUsuarioComponent implements OnInit {
     );
   }
 
+
   onSubmitActualizarUsuario() {
     this.usuarioEnviar = this.usuarioForm.value;
+    let respuesta;
     this.usuarioService.actualizarUsuario(this.usuarioId, this.usuarioEnviar)
       .pipe(
         tap(() => this.router.navigate(['listar_usuario'])),
         delay(2000)
+
       )
       .subscribe(
-        data => { console.log(data); },
+        data => { console.log(data);
+          respuesta = data;},
         error => { console.log(error); }
       );
+      return respuesta;
   }
 
   private construirFormularioUsuario() {
