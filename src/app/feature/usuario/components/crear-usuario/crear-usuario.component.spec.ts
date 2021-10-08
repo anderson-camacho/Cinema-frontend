@@ -7,7 +7,7 @@ import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { CrearUsuarioComponent } from "./crear-usuario.component";
 
-describe('Usuario crear - Pruebas Unitarias', ()=> {
+describe('USUARIO - {Crear}', () => {
   let component: CrearUsuarioComponent;
   let fixture: ComponentFixture<CrearUsuarioComponent>;
 
@@ -32,20 +32,19 @@ describe('Usuario crear - Pruebas Unitarias', ()=> {
     fixture.detectChanges();
   });
 
-  it('Usuario se deberia crear', () => {
+  it('USUARIO {Deberia crear componente}', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Usuario formalario deberia ser invalido cuando esta vacio', () => {
+  it('USUARIO {Deberia ser invalido el formulario}', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
   });
 
-  it('Usuario Formulario deberia crear y guardar', () => {
+  it('USUARIO {Deberia crear usaurio}', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
     component.usuarioForm.controls.nombre.setValue('Anderson Camacho Palacios');
     fixture.detectChanges();
     component.onSubmit();
     expect(component.usuarioForm.valid).toBeTruthy();
   });
-
 });
