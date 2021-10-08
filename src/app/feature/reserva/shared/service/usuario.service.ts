@@ -37,6 +37,6 @@ export class ReservaService extends ReservaServiceImplement {
       this.http.optsName('Actualizar reservas'));
   }
   public eliminarReserva(usuarioId: number) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/reservas/${usuarioId}`, this.http.optsName('eliminar reservas'));
+    return this.http.doDelete<number>(`${environment.endpoint}/reservas/${usuarioId}`, this.http.optsName('eliminar reservas'));
   }
 }

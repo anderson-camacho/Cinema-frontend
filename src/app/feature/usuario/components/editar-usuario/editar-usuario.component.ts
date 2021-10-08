@@ -24,7 +24,6 @@ export class EditarUsuarioComponent implements OnInit {
     this.onSubmit();
   }
 
-
   onSubmit() {
     this.usuarioId = parseInt(this.route.snapshot.paramMap.get('id'), 10);
     this.usuario.id = this.usuarioId;
@@ -42,7 +41,7 @@ export class EditarUsuarioComponent implements OnInit {
     let respuesta;
     this.usuarioService.actualizarUsuario(this.usuarioId, this.usuarioEnviar)
       .pipe(
-        tap(() => this.router.navigate(['listar_usuario'])),
+        tap(() => this.router.navigate(['usuario/listar'])),
         delay(2000)
 
       )

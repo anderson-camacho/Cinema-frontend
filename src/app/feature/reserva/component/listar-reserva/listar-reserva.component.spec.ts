@@ -1,61 +1,66 @@
-// import { HttpService } from '@core-service/http.service';
-// import { RouterTestingModule } from '@angular/router/testing';
-// import { HttpClientModule } from '@angular/common/http';
-// import { CommonModule } from '@angular/common';
-// import { Usuario } from './../../shared/model/usuario';
-// import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-// import { UsuarioService } from '../../shared/service/usuario.service';
-// import { ListarUsuarioComponent } from './listar-reserva.component';
-// import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { HttpService } from '@core/services/http.service';
+import { Reserva } from './../../shared/model/reserva';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ReservaService } from '@reserva/shared/service/usuario.service';
+import { ListarReservaComponent } from './listar-reserva.component';
+import { of } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
-// describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
-//   let component: ListarUsuarioComponent;
-//   let fixture: ComponentFixture<ListarUsuarioComponent>;
 
-//   let usuarioServicioStub: Partial<UsuarioService>;
+describe('Usuarios Consultar y Listar - Pruebas Unitarias', () => {
+  const DUMMY_ID_RESERVA = 1;
+  let component: ListarReservaComponent;
+  let fixture: ComponentFixture<ListarReservaComponent>;
+  let reservaServicioStub: Partial<ReservaService>;
 
-//   let dummyListaUsuarios: Usuario[] = [
-//     new Usuario({ id: 1, nombre: 'Juan Esteban GAlindo Hernandez', fechaCreacion: '2021-10-06' }),
-//     new Usuario({ id: 2, nombre: 'Aquileo Camacho Camacho', fechaCreacion: '2021-10-06' }),
-//     new Usuario({ id: 3, nombre: 'Aracely Hernandez Hernandez', fechaCreacion: '2021-10-06' }),
-//     new Usuario({ id: 4, nombre: 'Alezander Camacho Palacios', fechaCreacion: '2021-10-06' })
-//   ];
+  let dummyListaReserva: Reserva[] = [
+    new Reserva( 1, 1, 2 ),
+    new Reserva( 2, 2, 1 ),
+    new Reserva( 3, 3, 3 ),
+    new Reserva( 4, 4, 2 )
+  ];
 
-//   usuarioServicioStub = {
-//     consultarUsuario:()=>{
-//       return of(dummyListaUsuarios);
-//     }
-//   };
+  reservaServicioStub = {
+    consultarReserva:()=>{
+      return of(dummyListaReserva);
+    },
+    eliminarReserva:()=>{
+      return of (DUMMY_ID_RESERVA);
+    }
+  };
 
-//   beforeEach(waitForAsync(()=>{
-//     TestBed.configureTestingModule({
-//       declarations: [ListarUsuarioComponent],
-//       imports: [
-//         CommonModule,
-//         HttpClientModule,
-//         RouterTestingModule
-//       ],
-//       providers:[{provide: UsuarioService, HttpService, useValue:usuarioServicioStub}]
-//     })
-//     .compileComponents();
-//   }));
+  beforeEach(waitForAsync(()=>{
+    TestBed.configureTestingModule({
+      declarations: [ListarReservaComponent],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      providers:[{provide: ReservaService, HttpService, useValue:reservaServicioStub}]
+    })
+    .compileComponents();
+  }));
 
-//   beforeEach(()=>{
-//     fixture=TestBed.createComponent(ListarUsuarioComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(()=>{
+    fixture=TestBed.createComponent(ListarReservaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('Pelicula deberia crear dos componentes', () => {
-//     expect(component).toBeTruthy();
-//     component.listaUsuarios.subscribe(resultado => {
-//       expect(resultado).toEqual(dummyListaUsuarios);
-//     });
-//   });
+  it('RESERVA {Crearia el componente}', ()=>{
+    expect(component).toBeTruthy();
+  });
 
-//   it('Usuario deberia listar el componente', ()=>{
-//     expect(component).toBeTruthy();
-//   });
+  it('RESERVA {Comprobaria el componente cree la lista}', () => {
+    component.listaReservas.subscribe(resultado => {
+      expect(resultado).toEqual(dummyListaReserva);
+    });
+  });
+
+
 
 //   it('Usuario no debe listar el componente', () => {
 //     expect(!component).toBeFalsy();
@@ -78,4 +83,4 @@
 //     expect(MSG.innerHTML).toEqual(' Hey, No hay usuarios disponibles... ');
 //   });
 
-// })
+});

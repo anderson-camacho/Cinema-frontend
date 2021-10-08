@@ -30,12 +30,12 @@ export class ListarPeliculaComponent implements OnInit {
   }
 
   onSubmitUpdate(peliculaId: number): void {
-    this.router.navigate([`editar_pelicula/${peliculaId}`]);
+    this.router.navigate([`pelicula/editar/${peliculaId}`]);
   }
 
   onSubmitCreateHorario(pelicula: Pelicula): void {
     localStorage.setItem("idPelicula", pelicula.id.toString());
-    this.router.navigate([`crear_horario`]);
+    this.router.navigate([`horario/crear`]);
   }
 
 }

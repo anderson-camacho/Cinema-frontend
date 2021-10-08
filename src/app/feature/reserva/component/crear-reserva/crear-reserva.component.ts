@@ -29,7 +29,7 @@ constructor(protected reservaService: ReservaService, private router: Router) { 
 console.log(reservaGuardar);
     this.reservaService.guardarReserva(reservaGuardar)
       .pipe(
-        tap(() => this.router.navigate(['listar_reserva'])),
+        tap(() => this.router.navigate(['reserva/listar'])),
         delay(2000)
       )
       .subscribe(

@@ -31,6 +31,6 @@ export class ListarUsuarioComponent implements OnInit {
   }
 
   onSubmitUpdate(usuarioId: number): void {
-    this.router.navigate([`editar_usuario/${usuarioId}`]);
+    this.router.navigate([`usuario/editar/${usuarioId}`]);
   }
 }

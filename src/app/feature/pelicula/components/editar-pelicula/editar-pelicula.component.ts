@@ -41,7 +41,7 @@ export class EditarPeliculaComponent implements OnInit {
     this.peliculaEnviar = this.peliculaForm.value;
     this.peliculaService.actualizarPelicula(this.peliculaId, this.peliculaEnviar)
       .pipe(
-        tap(() => this.router.navigate(['listar_pelicula'])),
+        tap(() => this.router.navigate(['pelicula/listar'])),
         delay(2000)
       )
       .subscribe(

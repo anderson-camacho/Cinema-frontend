@@ -35,7 +35,7 @@ export class CrearHorarioComponent implements OnInit {
 
     this.horarioService.guardarHorario(horarioGuardar)
       .pipe(
-        tap(() => this.router.navigate(['listar_horario'])),
+        tap(() => this.router.navigate(['horario/listar'])),
         delay(2000)
       )
       .subscribe(

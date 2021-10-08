@@ -14,17 +14,19 @@ export class ListarReservaComponent implements OnInit {
   constructor(protected reservaService: ReservaService, ) { }
 
   ngOnInit() {
+    this.getReseva();
+  }
+
+  getReseva(){
     this.listaReservas = this.reservaService.consultarReserva();
   }
 
   onSubmitDelete(reserva: Reserva): void {
     this.reservaService.eliminarReserva(reserva.id)
       .subscribe(
-        data => {
-          console.log(data);
-          this.ngOnInit();
-        },
-        error => { console.log(error); }
+        () => {
+          this.getReseva();
+        }
       );
   }
 

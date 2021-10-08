@@ -33,7 +33,7 @@ export class ListarHorarioComponent implements OnInit {
 
   onSubmitAdd(horarioId: number): void {
     localStorage.setItem("idHorario", horarioId.toString());
-    this.router.navigate([`crear_reserva`]);
+    this.router.navigate([`reserva/crear`]);
 
   }
 

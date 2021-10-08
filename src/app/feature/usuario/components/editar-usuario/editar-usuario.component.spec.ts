@@ -72,7 +72,7 @@ describe('USUARIO - {Editar}', ()=>{
     expect(botonGuardar.disabled).toBeFalse();
   });
 
-  it('USAURIO {Deberia obtener un objeto completo de la consulta especifica}', () => {
+  it('USUARIO {Deberia obtener un objeto completo de la consulta especifica}', () => {
     component.onSubmit();
     expect(component.usuario).toEqual(dummyUsuarios);
   });

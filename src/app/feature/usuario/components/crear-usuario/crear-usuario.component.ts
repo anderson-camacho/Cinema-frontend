@@ -23,7 +23,7 @@ export class CrearUsuarioComponent implements OnInit {
   onSubmit() {
     this.usuarioService.guardarUsuario(this.usuarioForm.value)
       .pipe(
-        tap(() => this.router.navigate(['listar_usuario'])),
+        tap(() => this.router.navigate(['usuario/listar'])),
         delay(2000)
       )
       .subscribe(
