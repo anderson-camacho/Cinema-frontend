@@ -7,16 +7,16 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard] },
 
-  //Pelicula
+  // Pelicula
   { path: 'pelicula', loadChildren: () => import('@pelicula/pelicula.module').then(mod => mod.PeliculaModule) },
 
-  //Usuario
+  // Usuario
   { path: 'usuario', loadChildren: () => import('@usuario/usuario.module').then(mod => mod.UsuarioModule) },
 
-  //Horario
+  // Horario
   { path: 'horario', loadChildren: () => import('@horario/horario.module').then(mod => mod.HorarioModule) },
 
-  //Reserva
+  // Reserva
   { path: 'reserva', loadChildren: () => import('@reserva/reserva.module').then(mod => mod.ReservaModule) },
 ];
 

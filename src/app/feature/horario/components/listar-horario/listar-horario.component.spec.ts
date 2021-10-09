@@ -14,21 +14,21 @@ describe('HORARIO - {Listar, Eliminar}', () => {
 
   let component: ListarHorarioComponent;
   let fixture: ComponentFixture<ListarHorarioComponent>;
-  let horarioServicioStub: Partial<HorarioService>
+  let horarioServicioStub: Partial<HorarioService>;
 
   let dummyListaHorarios: Horario[] = [
     new Horario(1, 1, '2021-12-31', 50),
-    new Horario(2, 2,  '2021-12-31', 50),
-    new Horario(3, 3,  '2021-12-31', 50),
-    new Horario(4, 4,  '2021-12-31', 50)
+    new Horario(2, 2, '2021-12-31', 50),
+    new Horario(3, 3, '2021-12-31', 50),
+    new Horario(4, 4, '2021-12-31', 50)
   ];
 
   horarioServicioStub = {
     consultarHorario: () => {
       return of(dummyListaHorarios);
     },
-    eliminarHorario:()=>{
-      return of (DUMMY_ID_HORARIO);
+    eliminarHorario: () => {
+      return of(DUMMY_ID_HORARIO);
     }
   };
 
@@ -39,8 +39,8 @@ describe('HORARIO - {Listar, Eliminar}', () => {
         CommonModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([
-          { path: 'reserva/crear', component: CrearReservaComponent}
-      ])
+          { path: 'reserva/crear', component: CrearReservaComponent }
+        ])
       ],
       providers: [{ provide: HorarioService, HttpService, useValue: horarioServicioStub }]
     })
@@ -78,7 +78,7 @@ describe('HORARIO - {Listar, Eliminar}', () => {
     fixture.detectChanges();
     fixture.checkNoChanges();
     fixture.isStable();
-    expect(spyHorario).toHaveBeenCalled()
+    expect(spyHorario).toHaveBeenCalled();
   });
 
   it('HORARIO {Comprobaria que se elimino}', () => {

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Reserva } from './../model/reserva';
 
 
-//Clase Abstracta para garantizar los metodos verificados
+// Clase Abstracta para garantizar los metodos verificados
 export abstract class ReservaServiceImplement {
   public abstract consultarReserva();
 
@@ -17,7 +17,7 @@ export abstract class ReservaServiceImplement {
   public abstract eliminarReserva(reservaId: number);
 }
 
-//Servicio para uso de la conexion con el endpoint
+// Servicio para uso de la conexion con el endpoint
 @Injectable()
 export class ReservaService extends ReservaServiceImplement {
   constructor(protected http: HttpService) { super(); }

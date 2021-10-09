@@ -1,7 +1,7 @@
 import { tap, delay } from 'rxjs/operators';
 import { UsuarioService } from './../../shared/service/usuario.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../shared/model/usuario';
 import { Router } from '@angular/router';
 

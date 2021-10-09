@@ -36,8 +36,9 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     TestBed.configureTestingModule({
       declarations: [ListarUsuarioComponent],
       imports: [CommonModule, HttpClientModule, RouterTestingModule.withRoutes([
-        { path: 'usuario/editar/:id', component: EditarUsuarioComponent}
-    ]),],
+        { path: 'usuario/editar/:id', component: EditarUsuarioComponent }
+      ]),
+      ],
       providers: [{ provide: UsuarioService, HttpService, useValue: usuarioServicioStub }]
     }).compileComponents();
   }));
@@ -64,7 +65,7 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     fixture.detectChanges();
     fixture.checkNoChanges();
     fixture.isStable();
-    expect(spyUsuario).toHaveBeenCalled()
+    expect(spyUsuario).toHaveBeenCalled();
   });
 
   it('USUARIO {Comprobaria que la alerta de vacio este funcional', () => {
@@ -82,4 +83,4 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     fixture.detectChanges();
     expect(spyUsuario).toHaveBeenCalled();
   });
-})
+});

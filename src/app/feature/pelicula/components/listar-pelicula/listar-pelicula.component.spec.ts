@@ -28,7 +28,7 @@ describe('PELICULA - {Listar}', () => {
     consultarPelicula: () => {
       return of(dummyListaPeliculas);
     },
-    eliminarPelicula: ()=>{
+    eliminarPelicula: () => {
       return of(DUMMY_ID_PELICULA);
     }
   };
@@ -40,9 +40,9 @@ describe('PELICULA - {Listar}', () => {
         CommonModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([
-          { path: 'pelicula/editar/:id', component: EditarUsuarioComponent},
-          { path: 'horario/crear', component: CrearUsuarioComponent}
-      ])
+          { path: 'pelicula/editar/:id', component: EditarUsuarioComponent },
+          { path: 'horario/crear', component: CrearUsuarioComponent }
+        ])
       ],
       providers: [{ provide: PeliculaService, HttpService, useValue: peliculaServicioStub }]
     })
@@ -80,7 +80,7 @@ describe('PELICULA - {Listar}', () => {
     fixture.detectChanges();
     fixture.checkNoChanges();
     fixture.isStable();
-    expect(spyPelicula).toHaveBeenCalled()
+    expect(spyPelicula).toHaveBeenCalled();
   });
 
   it('PELICULA {Comprobaria que se elimino}', () => {

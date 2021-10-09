@@ -3,7 +3,7 @@ import { HttpService } from '@core-service/http.service';
 import { TestBed } from '@angular/core/testing';
 import { environment } from './../../../../../environments/environment';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { UsuarioService, UsuarioServiceImplement } from "./usuario.service";
+import { UsuarioService, UsuarioServiceImplement } from './usuario.service';
 import { Usuario } from '../model/usuario';
 import { HttpResponse } from '@angular/common/http';
 
@@ -11,7 +11,7 @@ describe('USUARIO SERVICIO', () => {
   let service: UsuarioServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndpointUsuario = `${environment.endpoint}/usuarios`;
-  const dummyUsuarioPre = { id: 50, nombre: "Actualizacion", fechaCreacion: "2021-10-06" };
+  const dummyUsuarioPre = { id: 50, nombre: 'Actualizacion', fechaCreacion: '2021-10-06' };
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -53,7 +53,7 @@ describe('USUARIO SERVICIO', () => {
   });
 
   it('HORARIO {Deberia actualizar PUT}', () => {
-    const dummyUsuarioPos = { nombre: "Actualizacion" };
+    const dummyUsuarioPos = { nombre: 'Actualizacion' };
 
     service.actualizarUsuario(dummyUsuarioPre.id, dummyUsuarioPos as Usuario)
       .subscribe((respuesta) => {

@@ -41,7 +41,7 @@ describe('HORARIO SERVICIO', () => {
   });
 
   it('HORARIO {Deberia insertar POST}', () => {
-    const dummySolicitud = { idPelicula: 1, fecha:'2022-10-11',cupos: 60 };
+    const dummySolicitud = { idPelicula: 1, fecha: '2022-10-11', cupos: 60 };
     const dummyRespuesta = true;
     service.guardarHorario(dummySolicitud as Horario).subscribe((respuesta) => {
       expect(respuesta).toEqual(dummyRespuesta);
@@ -51,8 +51,8 @@ describe('HORARIO SERVICIO', () => {
     req.event(new HttpResponse<boolean>({ body: true }));
   });
   it('HORARIO {Deberia actualizar PUT}', () => {
-    const dummyHorarioPre = {id: 1, idPelicula: 1, fecha:'2022-10-11',cupos: 60  };
-    const dummyHorarioPos = {idPelicula: 2, fecha:'2022-11-11',cupos: 10  };
+    const dummyHorarioPre = { id: 1, idPelicula: 1, fecha: '2022-10-11', cupos: 60 };
+    const dummyHorarioPos = { idPelicula: 2, fecha: '2022-11-11', cupos: 10 };
     service.actualizarHorario(dummyHorarioPre.id, dummyHorarioPos as Horario)
       .subscribe((respuesta) => {
         expect(respuesta).toEqual(false);
@@ -62,7 +62,7 @@ describe('HORARIO SERVICIO', () => {
     req.event(new HttpResponse<boolean>({ body: false }));
   });
   it('HORARIO {Deberia eliminar DELETE}', () => {
-    const dummyHorarioPre = { id: 1, idPelicula: 1, fecha:'2022-10-11',cupos: 60  };
+    const dummyHorarioPre = { id: 1, idPelicula: 1, fecha: '2022-10-11', cupos: 60 };
     service.eliminarHorario(dummyHorarioPre.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
     });

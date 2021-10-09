@@ -1,4 +1,4 @@
-import { IUsuario } from "./usuario.interface";
+import { IUsuario } from './usuario.interface';
 export class Usuario {
   id: number;
   nombre: string;

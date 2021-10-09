@@ -1,11 +1,11 @@
 import { HttpService } from '@core-service/http.service';
 import { UsuarioService } from './../../shared/service/usuario.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { CrearUsuarioComponent } from "./crear-usuario.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CrearUsuarioComponent } from './crear-usuario.component';
 import { ListarUsuarioComponent } from '../listar-usuario/listar-usuario.component';
 
 describe('USUARIO - {Crear}', () => {

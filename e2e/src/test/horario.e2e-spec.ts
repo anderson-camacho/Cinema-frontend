@@ -18,7 +18,7 @@ describe('Horario E2E', () => {
 
   it('Deberia crear horarios', () => {
     const CUPOS = 50;
-    const FECHA = "2021-10-20";
+    const FECHA = '2021-10-20';
     page.navigateTo();
     navBar.clickBotonPeliculas();
     pelicula.clickBotonCrearHorarioDesdePelicula();

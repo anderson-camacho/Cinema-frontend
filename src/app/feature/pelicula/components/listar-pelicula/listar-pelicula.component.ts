@@ -34,7 +34,7 @@ export class ListarPeliculaComponent implements OnInit {
   }
 
   onSubmitCreateHorario(pelicula: Pelicula): void {
-    localStorage.setItem("idPelicula", pelicula.id.toString());
+    localStorage.setItem('idPelicula', pelicula.id.toString());
     this.router.navigate([`horario/crear`]);
   }
 

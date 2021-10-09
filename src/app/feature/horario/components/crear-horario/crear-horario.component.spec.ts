@@ -1,11 +1,11 @@
 import { ListarHorarioComponent } from './../listar-horario/listar-horario.component';
 import { HorarioService } from '@horario/shared/service/horario.service';
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterTestingModule } from "@angular/router/testing";
-import { CrearHorarioComponent } from "./crear-horario.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CrearHorarioComponent } from './crear-horario.component';
 import { HttpService } from '@core/services/http.service';
 
 describe('HORARIO - {Crear}', () => {
@@ -20,8 +20,8 @@ describe('HORARIO - {Crear}', () => {
         CommonModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([
-          { path: 'horario/listar', component: ListarHorarioComponent}
-      ]),
+          { path: 'horario/listar', component: ListarHorarioComponent }
+        ]),
         ReactiveFormsModule,
         FormsModule
       ],

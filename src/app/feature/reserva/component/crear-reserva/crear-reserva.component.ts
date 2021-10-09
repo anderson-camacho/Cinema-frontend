@@ -1,7 +1,7 @@
 import { Reserva } from './../../shared/model/reserva';
 import { tap, delay } from 'rxjs/operators';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReservaService } from '@reserva/shared/service/usuario.service';
 
@@ -19,14 +19,13 @@ constructor(protected reservaService: ReservaService, private router: Router) { 
 
   ngOnInit(): void {
     this.construirFormularioReserva();
-    this.horarioId = Number(localStorage.getItem("idHorario"));
+    this.horarioId = Number(localStorage.getItem('idHorario'));
   }
 
   onSubmitCrearReserva() {
     let reservaGuardar: Reserva;
     reservaGuardar = this.reservaForm.value;
     reservaGuardar.idHorario = this.horarioId;
-console.log(reservaGuardar);
     this.reservaService.guardarReserva(reservaGuardar)
       .pipe(
         tap(() => this.router.navigate(['reserva/listar'])),

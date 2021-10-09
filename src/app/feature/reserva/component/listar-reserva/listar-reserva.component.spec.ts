@@ -16,22 +16,22 @@ describe('RESERVA - {Listar, Eliminar}', () => {
   let reservaServicioStub: Partial<ReservaService>;
 
   let dummyListaReserva: Reserva[] = [
-    new Reserva( 1, 1, 2 ),
-    new Reserva( 2, 2, 1 ),
-    new Reserva( 3, 3, 3 ),
-    new Reserva( 4, 4, 2 )
+    new Reserva(1, 1, 2),
+    new Reserva(2, 2, 1),
+    new Reserva(3, 3, 3),
+    new Reserva(4, 4, 2)
   ];
 
   reservaServicioStub = {
-    consultarReserva:()=>{
+    consultarReserva: () => {
       return of(dummyListaReserva);
     },
-    eliminarReserva:()=>{
-      return of (DUMMY_ID_RESERVA);
+    eliminarReserva: () => {
+      return of(DUMMY_ID_RESERVA);
     }
   };
 
-  beforeEach(waitForAsync(()=>{
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ListarReservaComponent],
       imports: [
@@ -39,18 +39,18 @@ describe('RESERVA - {Listar, Eliminar}', () => {
         HttpClientModule,
         RouterTestingModule
       ],
-      providers:[{provide: ReservaService, HttpService, useValue:reservaServicioStub}]
+      providers: [{ provide: ReservaService, HttpService, useValue: reservaServicioStub }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
-  beforeEach(()=>{
-    fixture=TestBed.createComponent(ListarReservaComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ListarReservaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('RESERVA {Crearia el componente}', ()=>{
+  it('RESERVA {Crearia el componente}', () => {
     expect(component).toBeTruthy();
   });
 
@@ -70,11 +70,11 @@ describe('RESERVA - {Listar, Eliminar}', () => {
   });
 
 
-it('RESERVA {Comprobaria que se elimino}', () => {
-  const spyReserva = spyOn(component, 'onSubmitDelete').and.callThrough();
-  component.onSubmitDelete(DUMMY_ID_RESERVA);
-  fixture.detectChanges();
-  expect(spyReserva).toHaveBeenCalled();
-});
+  it('RESERVA {Comprobaria que se elimino}', () => {
+    const spyReserva = spyOn(component, 'onSubmitDelete').and.callThrough();
+    component.onSubmitDelete(DUMMY_ID_RESERVA);
+    fixture.detectChanges();
+    expect(spyReserva).toHaveBeenCalled();
+  });
 
 });

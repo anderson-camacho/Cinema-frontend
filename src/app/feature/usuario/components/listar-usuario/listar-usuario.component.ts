@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from './../../shared/service/usuario.service';
 import { Usuario } from './../../shared/model/usuario';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-listar-usuario',

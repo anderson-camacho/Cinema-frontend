@@ -2,13 +2,13 @@ import { ListarReservaComponent } from './../listar-reserva/listar-reserva.compo
 import { HttpService } from './../../../../core/services/http.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ReservaService } from '@reserva/shared/service/usuario.service';
-import { CrearReservaComponent } from "./crear-reserva.component";
+import { CrearReservaComponent } from './crear-reserva.component';
 
-describe('RESERVA - {Crear}', ()=> {
+describe('RESERVA - {Crear}', () => {
   let component: CrearReservaComponent;
   let fixture: ComponentFixture<CrearReservaComponent>;
 
@@ -19,8 +19,8 @@ describe('RESERVA - {Crear}', ()=> {
         CommonModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([
-          { path: 'reserva/listar', component: ListarReservaComponent}
-      ]),
+          { path: 'reserva/listar', component: ListarReservaComponent }
+        ]),
         ReactiveFormsModule,
         FormsModule
       ],

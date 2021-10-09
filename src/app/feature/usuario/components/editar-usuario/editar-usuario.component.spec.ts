@@ -5,13 +5,13 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { Usuario } from "@usuario/shared/model/usuario";
-import { ActivatedRoute, convertToParamMap } from "@angular/router";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Usuario } from '@usuario/shared/model/usuario';
+import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { EditarUsuarioComponent } from '@usuario/components/editar-usuario/editar-usuario.component';
 import { UsuarioService } from '@usuario/shared/service/usuario.service';
 
-describe('USUARIO - {Editar}', ()=>{
+describe('USUARIO - {Editar}', () => {
   let component: EditarUsuarioComponent;
   let fixture: ComponentFixture<EditarUsuarioComponent>;
 
@@ -28,8 +28,8 @@ describe('USUARIO - {Editar}', ()=>{
         CommonModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([
-          { path: 'usuario/listar', component: ListarUsuarioComponent}
-      ]),
+          { path: 'usuario/listar', component: ListarUsuarioComponent }
+        ]),
         ReactiveFormsModule,
         FormsModule
       ],

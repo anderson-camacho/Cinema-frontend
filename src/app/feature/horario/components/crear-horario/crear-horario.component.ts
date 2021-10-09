@@ -2,7 +2,7 @@ import { tap, delay } from 'rxjs/operators';
 import { HorarioService } from '@horario/shared/service/horario.service';
 import { Horario } from '../../shared/model/horario';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -22,8 +22,8 @@ export class CrearHorarioComponent implements OnInit {
     this.getHorario();
   }
 
-  getHorario(){
-    this.horarioId = Number(localStorage.getItem("idPelicula"));
+  getHorario() {
+    this.horarioId = Number(localStorage.getItem('idPelicula'));
     this.date = new Date().toISOString().slice(0, 10);
   }
 

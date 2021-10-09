@@ -2,7 +2,7 @@ import { tap, delay } from 'rxjs/operators';
 import { Usuario } from './../../shared/model/usuario';
 import { UsuarioService } from './../../shared/service/usuario.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -17,7 +17,6 @@ export class EditarUsuarioComponent implements OnInit {
   usuarioEnviar = {} as Usuario;
 
   constructor(protected usuarioService: UsuarioService, private route: ActivatedRoute, private router: Router) { }
-
 
   ngOnInit(): void {
     this.construirFormularioUsuario();
@@ -35,7 +34,6 @@ export class EditarUsuarioComponent implements OnInit {
     );
   }
 
-
   onSubmitActualizarUsuario() {
     this.usuarioEnviar = this.usuarioForm.value;
     let respuesta;
@@ -46,11 +44,15 @@ export class EditarUsuarioComponent implements OnInit {
 
       )
       .subscribe(
-        data => { console.log(data);
-          respuesta = data;},
-        error => { console.log(error); }
+        data => {
+          console.log(data);
+          respuesta = data;
+        },
+        error => {
+          console.log(error);
+        }
       );
-      return respuesta;
+    return respuesta;
   }
 
   private construirFormularioUsuario() {

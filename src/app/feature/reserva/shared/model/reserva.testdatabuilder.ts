@@ -15,6 +15,6 @@ export class ReservaTestDataBuilder {
       id: this.id,
       idUsuario: this.idUsuario,
       idHorario: this.idHorario
-    }
+    };
   }
 }

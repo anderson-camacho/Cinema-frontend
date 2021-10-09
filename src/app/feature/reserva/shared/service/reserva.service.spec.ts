@@ -1,6 +1,6 @@
 import { environment } from './../../../../../environments/environment';
-import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
-import { ReservaService, ReservaServiceImplement } from "./usuario.service";
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { ReservaService, ReservaServiceImplement } from './usuario.service';
 import { TestBed } from '@angular/core/testing';
 import { HttpService } from '@core/services/http.service';
 import { ReservaTestDataBuilder } from '../model/reserva.testdatabuilder';
@@ -11,7 +11,7 @@ describe('RESERVA SERVICIO', () => {
   let service: ReservaServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndpointReserva = `${environment.endpoint}/reservas`;
-  const dummyReservaPre = { id: 50, nombre: "Actualizacion", fechaCreacion: "2021-10-06" };
+  const dummyReservaPre = { id: 50, nombre: 'Actualizacion', fechaCreacion: '2021-10-06' };
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -56,12 +56,12 @@ describe('RESERVA SERVICIO', () => {
     const dummyReservaPos = { id: 1, idUsuario: 1, idHorario: 1 };
 
     service.actualizarReserva(dummyReservaPre.id, dummyReservaPos as Reserva)
-    .subscribe((respuesta)=>{
-      expect(respuesta).toEqual(false);
-    });
+      .subscribe((respuesta) => {
+        expect(respuesta).toEqual(false);
+      });
     const req = httpMock.expectOne(`${apiEndpointReserva}/${dummyReservaPre.id}`);
     expect(req.request.method).toBe('PUT');
-    req.event(new HttpResponse<boolean>({body: false}));
+    req.event(new HttpResponse<boolean>({ body: false }));
   });
 
   it('RESERVA {Deberia eliminar DELETE}', () => {

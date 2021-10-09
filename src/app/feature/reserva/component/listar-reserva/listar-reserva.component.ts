@@ -1,7 +1,7 @@
 import { Reserva } from '../../shared/model/reserva';
 import { ReservaService } from '../../shared/service/usuario.service';
 import { Observable } from 'rxjs';
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-listar-reserva',
