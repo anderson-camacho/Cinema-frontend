@@ -7,7 +7,7 @@ import { ReservaTestDataBuilder } from '../model/reserva.testdatabuilder';
 import { Reserva } from '../model/reserva';
 import { HttpResponse } from '@angular/common/http';
 
-describe('Reserva Servicio Pruebas Unitarias', () => {
+describe('RESERVA SERVICIO', () => {
   let service: ReservaServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndpointReserva = `${environment.endpoint}/reservas`;
@@ -22,12 +22,12 @@ describe('Reserva Servicio Pruebas Unitarias', () => {
     service = TestBed.inject(ReservaServiceImplement);
   });
 
-  it('Reserva deberia ser crado', () => {
+  it('RESERVA {Deberia ser creada}', () => {
     const reservaService: ReservaServiceImplement = TestBed.inject(ReservaServiceImplement);
     expect(reservaService).toBeTruthy();
   });
 
-  it('Reserva pruebas de gestion GET', () => {
+  it('RESERVA {Deberia consultar GET}', () => {
     const dummyReserva = [
       new ReservaTestDataBuilder(1, 1, 1).build(),
       new ReservaTestDataBuilder(2, 2, 2).build()
@@ -41,7 +41,7 @@ describe('Reserva Servicio Pruebas Unitarias', () => {
     req.flush(dummyReserva);
   });
 
-  it('Reserva preubas de gestion POST', () => {
+  it('RESERVA {Deberia insertar POST}', () => {
     const dummySolicitud = { id: 1, idUsuario: 1, idHorario: 1 };
     const dummyRespuesta = true;
     service.guardarReserva(dummySolicitud as Reserva).subscribe((respuesta) => {
@@ -52,7 +52,7 @@ describe('Reserva Servicio Pruebas Unitarias', () => {
     req.event(new HttpResponse<boolean>({ body: true }));
   });
 
-  it('Reserva preubas de gestion PUT', () => {
+  it('RESERVA {Deberia actualizar PUT}', () => {
     const dummyReservaPos = { id: 1, idUsuario: 1, idHorario: 1 };
 
     service.actualizarReserva(dummyReservaPre.id, dummyReservaPos as Reserva)
@@ -64,7 +64,7 @@ describe('Reserva Servicio Pruebas Unitarias', () => {
     req.event(new HttpResponse<boolean>({body: false}));
   });
 
-  it('Reserva pruebas de gestion DELETE', () => {
+  it('RESERVA {Deberia eliminar DELETE}', () => {
     service.eliminarReserva(dummyReservaPre.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
     });

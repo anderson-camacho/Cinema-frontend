@@ -7,7 +7,7 @@ import { HttpService } from '@core/services/http.service';
 import { Horario } from '../model/horario';
 import { HttpResponse } from '@angular/common/http';
 
-describe('Horario Service Pruebas Unitarias', () => {
+describe('HORARIO SERVICIO', () => {
   let service: HorarioServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndopointHorario = `${environment.endpoint}/horarios`;
@@ -21,12 +21,12 @@ describe('Horario Service Pruebas Unitarias', () => {
     service = TestBed.inject(HorarioServiceImplement);
   });
 
-  it('Horario deberia ser creada', () => {
+  it('HORARIO {Deberia ser creada}', () => {
     const horarioService: HorarioServiceImplement = TestBed.inject(HorarioServiceImplement);
     expect(horarioService).toBeTruthy();
   });
 
-  it('Horario pruebas de gestion GET', () => {
+  it('HORARIO {Deberia consultar GET}', () => {
     const dummyHorarios = [
       new HorarioTestDataBuilder(1, '2022-10-11', 60).build(),
       new HorarioTestDataBuilder(2, '2022-12-21', 20).build()
@@ -40,7 +40,7 @@ describe('Horario Service Pruebas Unitarias', () => {
     req.flush(dummyHorarios);
   });
 
-  it('Horarios pruebas de gestion POST', () => {
+  it('HORARIO {Deberia insertar POST}', () => {
     const dummySolicitud = { idPelicula: 1, fecha:'2022-10-11',cupos: 60 };
     const dummyRespuesta = true;
     service.guardarHorario(dummySolicitud as Horario).subscribe((respuesta) => {
@@ -50,7 +50,7 @@ describe('Horario Service Pruebas Unitarias', () => {
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({ body: true }));
   });
-  it('Horario pruebas de gestion PUT', () => {
+  it('HORARIO {Deberia actualizar PUT}', () => {
     const dummyHorarioPre = {id: 1, idPelicula: 1, fecha:'2022-10-11',cupos: 60  };
     const dummyHorarioPos = {idPelicula: 2, fecha:'2022-11-11',cupos: 10  };
     service.actualizarHorario(dummyHorarioPre.id, dummyHorarioPos as Horario)
@@ -61,7 +61,7 @@ describe('Horario Service Pruebas Unitarias', () => {
     expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({ body: false }));
   });
-  it('Horariospruebas de gestion DELETE', () => {
+  it('HORARIO {Deberia eliminar DELETE}', () => {
     const dummyHorarioPre = { id: 1, idPelicula: 1, fecha:'2022-10-11',cupos: 60  };
     service.eliminarHorario(dummyHorarioPre.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(false);
