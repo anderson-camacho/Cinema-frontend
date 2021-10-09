@@ -17,7 +17,9 @@ describe('PELICULA - {Crear}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'pelicula/listar', component: ListarPeliculaComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],

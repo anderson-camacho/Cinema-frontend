@@ -1,3 +1,4 @@
+import { ListarHorarioComponent } from './../listar-horario/listar-horario.component';
 import { HorarioService } from '@horario/shared/service/horario.service';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
@@ -18,7 +19,9 @@ describe('HORARIO - {Crear}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'horario/listar', component: ListarHorarioComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],

@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Pelicula } from './../../shared/model/pelicula';
+import { EditarUsuarioComponent } from '@usuario/components/editar-usuario/editar-usuario.component';
+import { CrearUsuarioComponent } from '@usuario/components/crear-usuario/crear-usuario.component';
 
 describe('PELICULA - {Listar}', () => {
   const DUMMY_ID_PELICULA = 1;
@@ -37,7 +39,10 @@ describe('PELICULA - {Listar}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule.withRoutes([
+          { path: 'pelicula/editar/:id', component: EditarUsuarioComponent},
+          { path: 'horario/crear', component: CrearUsuarioComponent}
+      ])
       ],
       providers: [{ provide: PeliculaService, HttpService, useValue: peliculaServicioStub }]
     })

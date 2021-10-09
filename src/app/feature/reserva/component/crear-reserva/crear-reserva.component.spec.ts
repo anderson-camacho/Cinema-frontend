@@ -1,3 +1,4 @@
+import { ListarReservaComponent } from './../listar-reserva/listar-reserva.component';
 import { HttpService } from './../../../../core/services/http.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,7 +18,9 @@ describe('RESERVA - {Crear}', ()=> {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'reserva/listar', component: ListarReservaComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],

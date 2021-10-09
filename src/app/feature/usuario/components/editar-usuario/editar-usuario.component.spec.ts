@@ -1,3 +1,4 @@
+import { ListarUsuarioComponent } from '@usuario/components/listar-usuario/listar-usuario.component';
 import { of } from 'rxjs';
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
@@ -26,7 +27,9 @@ describe('USUARIO - {Editar}', ()=>{
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'usuario/listar', component: ListarUsuarioComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],

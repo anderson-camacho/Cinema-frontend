@@ -1,3 +1,4 @@
+import { CrearReservaComponent } from '@reserva/component/crear-reserva/crear-reserva.component';
 import { HttpService } from './../../../../core/services/http.service';
 import { Horario } from './../../shared/model/horario';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -37,7 +38,9 @@ describe('HORARIO - {Listar, Eliminar}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule
+        RouterTestingModule.withRoutes([
+          { path: 'reserva/crear', component: CrearReservaComponent}
+      ])
       ],
       providers: [{ provide: HorarioService, HttpService, useValue: horarioServicioStub }]
     })

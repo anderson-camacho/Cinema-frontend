@@ -6,6 +6,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { RouterTestingModule } from "@angular/router/testing";
 import { CrearUsuarioComponent } from "./crear-usuario.component";
+import { ListarUsuarioComponent } from '../listar-usuario/listar-usuario.component';
 
 describe('USUARIO - {Crear}', () => {
   let component: CrearUsuarioComponent;
@@ -17,7 +18,9 @@ describe('USUARIO - {Crear}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'usuario/listar', component: ListarUsuarioComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],

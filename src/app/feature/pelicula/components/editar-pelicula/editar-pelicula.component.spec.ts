@@ -9,6 +9,7 @@ import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { Pelicula } from '@pelicula/shared/model/pelicula';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
+import { ListarPeliculaComponent } from '../listar-pelicula/listar-pelicula.component';
 
 describe('PELICULA - {Editar}', () => {
 
@@ -27,7 +28,9 @@ describe('PELICULA - {Editar}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'pelicula/listar', component: ListarPeliculaComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],

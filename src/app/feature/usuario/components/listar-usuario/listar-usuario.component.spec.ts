@@ -7,6 +7,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { UsuarioService } from '../../shared/service/usuario.service';
 import { ListarUsuarioComponent } from './listar-usuario.component';
 import { of } from 'rxjs';
+import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
 
 describe('USUARIO - {Listar, Eliminar}', () => {
   const DUMMY_ID_USUARIO = 1;
@@ -34,7 +35,9 @@ describe('USUARIO - {Listar, Eliminar}', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ListarUsuarioComponent],
-      imports: [CommonModule, HttpClientModule, RouterTestingModule],
+      imports: [CommonModule, HttpClientModule, RouterTestingModule.withRoutes([
+        { path: 'usuario/editar/:id', component: EditarUsuarioComponent}
+    ]),],
       providers: [{ provide: UsuarioService, HttpService, useValue: usuarioServicioStub }]
     }).compileComponents();
   }));
