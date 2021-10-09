@@ -18,8 +18,8 @@ export class ListarPeliculaComponent implements OnInit {
     this.listaPeliculas = this.peliculaService.consultarPelicula();
   }
 
-  onSubmitDelete(pelicula: Pelicula): void {
-    this.peliculaService.eliminarPelicula(pelicula.id)
+  onSubmitDelete(peliculaId: number): void {
+    this.peliculaService.eliminarPelicula(peliculaId)
       .subscribe(
         data => {
           console.log(data);
@@ -29,14 +29,13 @@ export class ListarPeliculaComponent implements OnInit {
       );
   }
 
-  onSubmitUpdate(pelicula: Pelicula): void {
-    this.router.navigate([`editar_pelicula/${pelicula.id}`]);
-
+  onSubmitUpdate(peliculaId: number): void {
+    this.router.navigate([`pelicula/editar/${peliculaId}`]);
   }
 
   onSubmitCreateHorario(pelicula: Pelicula): void {
-    localStorage.setItem("idPelicula", pelicula.id.toString());
-    this.router.navigate([`crear_horario`]);
+    localStorage.setItem('idPelicula', pelicula.id.toString());
+    this.router.navigate([`horario/crear`]);
   }
 
 }

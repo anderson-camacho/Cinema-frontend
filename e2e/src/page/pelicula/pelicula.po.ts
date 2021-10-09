@@ -1,36 +1,36 @@
 import { by, element } from 'protractor';
 
 export class PeliculaPage {
-  //Acciones Generales Pelicula
-  //Acciones Listar Pelicula
+  // Acciones Generales Pelicula
+  // Acciones Listar Pelicula
   private listaPeliculas = element.all(by.id('linkBodyListaPeliculas'));
   linkPelicula = element(by.xpath('/html/body/app-root/app-navbar/nav/a[2]'));
 
-  //Elementos para Crear Pelicula
+  // Elementos para Crear Pelicula
   private linkCrearPeliculasLista = element(by.id('linkCrearPeliculaLista'));
   private linkCrearPeliculas = element(by.id('linkBotonCrear'));
   private inputTituloCrearPeliculas = element(by.id('linkInputTituloCrearPelicula'));
   private inputDirectorCrearPeliculas = element(by.id('linkInputDirectorCrearPelicula'));
 
-  //Elementos para Actualizar Pelicula
+  // Elementos para Actualizar Pelicula
   private linkActualizarPeliculas = element(by.id('linkActualizarPelicula'));
   private linkEditarPeliculas = element(by.id('linkBotonCrear'));
   private inputTituloEditarPeliculas = element(by.id('linkInputTituloEditarPelicula'));
   private inputDirectorEditarPeliculas = element(by.id('linkInputDirectorEditarPelicula'));
 
-  //Elementos para Eliminar Pelicula
+  // Elementos para Eliminar Pelicula
   private linkEliminarPeliculas = element(by.id('linkEliminarPelicula'));
 
-  //Crear Hoario
+  // Crear Hoario
   private linkCrearHorarioDesdePelicula = element(by.id('linkCrearHorarioDesdePelicula'));
 
 
-  //Metodos
+  // Metodos
   async clickBotonCrearHorarioDesdePelicula() {
     await this.linkCrearHorarioDesdePelicula.click();
   }
 
-  //Metodos de accion para Listar Pelicula
+  // Metodos de accion para Listar Pelicula
   async clickBotonListarPeliculas() {
     await this.linkPelicula.click();
   }
@@ -39,7 +39,7 @@ export class PeliculaPage {
     return (await this.listaPeliculas).length;
   }
 
-  //Metodos de accion para Crear Pelicula
+  // Metodos de accion para Crear Pelicula
   async clickBotonCrearPeliculasEnLista() {
     await this.linkCrearPeliculasLista.click();
   }
@@ -56,7 +56,7 @@ export class PeliculaPage {
     await this.inputDirectorCrearPeliculas.sendKeys(directorPeliculas);
   }
 
-  //Metodos de accion para Editar Pelicula
+  // Metodos de accion para Editar Pelicula
   async clickBotonActualizarPeliculas() {
     await this.linkActualizarPeliculas.click();
   }
@@ -74,7 +74,7 @@ export class PeliculaPage {
   }
 
 
-  //Metodos de accion para borrar Pelicula
+  // Metodos de accion para borrar Pelicula
 
   async clickBotonEliminarPeliculas() {
     await this.linkEliminarPeliculas.click();

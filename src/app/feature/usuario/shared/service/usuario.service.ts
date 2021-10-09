@@ -1,9 +1,9 @@
 import { environment } from '../../../../../environments/environment';
 import { HttpService } from '@core-service/http.service';
-import { Injectable } from "@angular/core";
-import { Usuario } from "../model/usuario";
+import { Injectable } from '@angular/core';
+import { Usuario } from '../model/usuario';
 
-//Clase Abstracta para garantizar los metodos verificados
+// Clase Abstracta para garantizar los metodos verificados
 export abstract class UsuarioServiceImplement {
   public abstract consultarUsuario();
 
@@ -16,7 +16,7 @@ export abstract class UsuarioServiceImplement {
   public abstract eliminarUsuario(usuarioId: number);
 }
 
-//Servicio para uso de la conexion con el endpoint
+// Servicio para uso de la conexion con el endpoint
 @Injectable()
 export class UsuarioService extends UsuarioServiceImplement {
   constructor(protected http: HttpService) { super(); }

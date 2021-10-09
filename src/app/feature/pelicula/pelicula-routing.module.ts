@@ -19,7 +19,7 @@ const routes: Routes = [
         component: ListarPeliculaComponent
       },
       {
-        path: 'editar',
+        path: 'editar/:id',
         component: EditarPeliculaComponent
       }
     ]

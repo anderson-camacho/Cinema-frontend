@@ -1,4 +1,4 @@
-import { Usuario } from "./usuario";
+import { Usuario } from './usuario';
 
 export class UsuarioTestDataBuilder {
   id: number;
@@ -15,13 +15,13 @@ export class UsuarioTestDataBuilder {
 
   setFechaCreacion(fechaCreacion: string) {
     this.fechaCreacion = fechaCreacion;
-  };
+  }
 
   build(): Usuario{
     return{
       id: this.id,
       nombre: this.nombre,
       fechaCreacion: this.fechaCreacion
-    }
+    };
   }
 }

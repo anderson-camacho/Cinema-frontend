@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpService } from '@core-service/http.service';
 import { Injectable } from '@angular/core';
 
-//Clase Abstracta para garantizar los metodos verificados
+// Clase Abstracta para garantizar los metodos verificados
 export abstract class HorarioServiceImplement {
   public abstract consultarHorario();
 
@@ -16,7 +16,7 @@ export abstract class HorarioServiceImplement {
   public abstract eliminarHorario(horarioId: number);
 }
 
-//Servicio para uso de la conexion con el endpoint
+// Servicio para uso de la conexion con el endpoint
 @Injectable()
 export class HorarioService extends HorarioServiceImplement {
   constructor(protected http: HttpService) { super(); }
@@ -40,6 +40,6 @@ export class HorarioService extends HorarioServiceImplement {
   }
 
   public eliminarHorario(horarioId: number) {
-    return this.http.doDelete<boolean>(`${environment.endpoint}/horarios/${horarioId}`, this.http.optsName('Eliminar Horarios'));
+    return this.http.doDelete<number>(`${environment.endpoint}/horarios/${horarioId}`, this.http.optsName('Eliminar Horarios'));
   }
 }

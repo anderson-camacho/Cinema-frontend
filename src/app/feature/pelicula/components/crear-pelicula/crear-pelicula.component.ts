@@ -25,7 +25,7 @@ export class CrearPeliculaComponent implements OnInit {
   onSubmit() {
     this.peliculaService.guardarPelicula(this.peliculaForm.value)
       .pipe(
-        tap(() => this.router.navigate(['listar_pelicula'])),
+        tap(() => this.router.navigate(['pelicula/listar'])),
         delay(2000)
       )
       .subscribe(

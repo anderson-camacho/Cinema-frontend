@@ -3,15 +3,15 @@ import { HttpService } from '@core-service/http.service';
 import { TestBed } from '@angular/core/testing';
 import { environment } from './../../../../../environments/environment';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
-import { UsuarioService, UsuarioServiceImplement } from "./usuario.service";
+import { UsuarioService, UsuarioServiceImplement } from './usuario.service';
 import { Usuario } from '../model/usuario';
 import { HttpResponse } from '@angular/common/http';
 
-describe('Usuario Servicio Pruebas Unitarias', () => {
+describe('USUARIO SERVICIO', () => {
   let service: UsuarioServiceImplement;
   let httpMock: HttpTestingController;
   const apiEndpointUsuario = `${environment.endpoint}/usuarios`;
-  const dummyUsuarioPre = { id: 50, nombre: "Actualizacion", fechaCreacion: "2021-10-06" };
+  const dummyUsuarioPre = { id: 50, nombre: 'Actualizacion', fechaCreacion: '2021-10-06' };
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
@@ -22,12 +22,12 @@ describe('Usuario Servicio Pruebas Unitarias', () => {
     service = TestBed.inject(UsuarioServiceImplement);
   });
 
-  it('Usuario deberia ser crado', () => {
+  it('HORARIO {Deberia ser creada}', () => {
     const usuarioService: UsuarioServiceImplement = TestBed.inject(UsuarioServiceImplement);
     expect(usuarioService).toBeTruthy();
   });
 
-  it('Usuario pruebas de gestion GET', () => {
+  it('HORARIO {Deberia consultar GET}', () => {
     const dummyUsuarios = [
       new UsuarioTestDataBuilder('Usuario 1').build(),
       new UsuarioTestDataBuilder('Usuario 2').build()
@@ -41,7 +41,7 @@ describe('Usuario Servicio Pruebas Unitarias', () => {
     req.flush(dummyUsuarios);
   });
 
-  it('Usuario preubas de gestion POST', () => {
+  it('HORARIO {Deberia insertar POST}', () => {
     const dummySolicitud = { nombre: 'Persona cualquiera' };
     const dummyRespuesta = true;
     service.guardarUsuario(dummySolicitud as Usuario).subscribe((respuesta) => {
@@ -52,8 +52,8 @@ describe('Usuario Servicio Pruebas Unitarias', () => {
     req.event(new HttpResponse<boolean>({ body: true }));
   });
 
-  it('Usuario preubas de gestion PUT', () => {
-    const dummyUsuarioPos = { nombre: "Actualizacion" };
+  it('HORARIO {Deberia actualizar PUT}', () => {
+    const dummyUsuarioPos = { nombre: 'Actualizacion' };
 
     service.actualizarUsuario(dummyUsuarioPre.id, dummyUsuarioPos as Usuario)
       .subscribe((respuesta) => {
@@ -64,7 +64,7 @@ describe('Usuario Servicio Pruebas Unitarias', () => {
     req.event(new HttpResponse<boolean>({ body: false }));
   });
 
-  it('Pelicula pruebas de gestion DELETE', () => {
+  it('HORARIO {Deberia eliminar DELETE}', () => {
     service.eliminarUsuario(dummyUsuarioPre.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(1);
     });

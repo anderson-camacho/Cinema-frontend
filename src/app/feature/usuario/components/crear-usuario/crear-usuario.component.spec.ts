@@ -1,11 +1,12 @@
 import { HttpService } from '@core-service/http.service';
 import { UsuarioService } from './../../shared/service/usuario.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
-import { RouterTestingModule } from "@angular/router/testing";
-import { CrearUsuarioComponent } from "./crear-usuario.component";
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CrearUsuarioComponent } from './crear-usuario.component';
+import { ListarUsuarioComponent } from '../listar-usuario/listar-usuario.component';
 
 describe('USUARIO - {Crear}', () => {
   let component: CrearUsuarioComponent;
@@ -17,7 +18,9 @@ describe('USUARIO - {Crear}', () => {
       imports: [
         CommonModule,
         HttpClientModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'usuario/listar', component: ListarUsuarioComponent}
+      ]),
         ReactiveFormsModule,
         FormsModule
       ],
@@ -40,7 +43,7 @@ describe('USUARIO - {Crear}', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
   });
 
-  it('USUARIO {Deberia crear usaurio}', () => {
+  it('USUARIO {Deberia crear usuario}', () => {
     expect(component.usuarioForm.valid).toBeFalsy();
     component.usuarioForm.controls.nombre.setValue('Anderson Camacho Palacios');
     fixture.detectChanges();

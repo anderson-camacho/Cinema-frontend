@@ -1,86 +1,90 @@
-// import { PeliculaService } from './../../shared/service/pelicula.service';
-// import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-// import { of } from 'rxjs';
-// import { ListarPeliculaComponent } from './listar-horario.component';
-// import { CommonModule } from '@angular/common';
-// import { HttpClientModule } from '@angular/common/http';
-// import { RouterTestingModule } from '@angular/router/testing';
-// import { HttpService } from 'src/app/core/services/http.service';
-// import { Pelicula } from './../../shared/model/pelicula';
+import { CrearReservaComponent } from '@reserva/component/crear-reserva/crear-reserva.component';
+import { HttpService } from './../../../../core/services/http.service';
+import { Horario } from './../../shared/model/horario';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { HorarioService } from '@horario/shared/service/horario.service';
+import { ListarHorarioComponent } from './listar-horario.component';
+import { of } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
-// describe('Peliculas Consultar y Listar - Pruebas Unitarias', () => {
-//   let component: ListarPeliculaComponent;
-//   let fixture: ComponentFixture<ListarPeliculaComponent>;
+describe('HORARIO - {Listar, Eliminar}', () => {
+  const DUMMY_ID_HORARIO = 1;
 
-//   let peliculaServicioStub: Partial<PeliculaService>;
+  let component: ListarHorarioComponent;
+  let fixture: ComponentFixture<ListarHorarioComponent>;
+  let horarioServicioStub: Partial<HorarioService>;
 
-//   let dummyListaPeliculas: Pelicula[] = [
-//     new Pelicula({ id: 1, titulo: 'Pelicula 1', director: 'Director 1' }),
-//     new Pelicula({ id: 2, titulo: 'Pelicula 2', director: 'Director 2' }),
-//     new Pelicula({ id: 3, titulo: 'Pelicula 3', director: 'Director 3' }),
-//     new Pelicula({ id: 4, titulo: 'Pelicula 4', director: 'Director 4' })
-//   ];
+  let dummyListaHorarios: Horario[] = [
+    new Horario(1, 1, '2021-12-31', 50),
+    new Horario(2, 2, '2021-12-31', 50),
+    new Horario(3, 3, '2021-12-31', 50),
+    new Horario(4, 4, '2021-12-31', 50)
+  ];
 
-//   peliculaServicioStub = {
-//     consultarPelicula: () => {
-//       return of(dummyListaPeliculas);
-//     }
-//   };
+  horarioServicioStub = {
+    consultarHorario: () => {
+      return of(dummyListaHorarios);
+    },
+    eliminarHorario: () => {
+      return of(DUMMY_ID_HORARIO);
+    }
+  };
 
-//   beforeEach(waitForAsync(() => {
-//     TestBed.configureTestingModule({
-//       declarations: [ListarPeliculaComponent],
-//       imports: [
-//         CommonModule,
-//         HttpClientModule,
-//         RouterTestingModule
-//       ],
-//       providers: [{ provide: PeliculaService, HttpService, useValue: peliculaServicioStub }]
-//     })
-//       .compileComponents();
-//   }));
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ListarHorarioComponent],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        RouterTestingModule.withRoutes([
+          { path: 'reserva/crear', component: CrearReservaComponent }
+        ])
+      ],
+      providers: [{ provide: HorarioService, HttpService, useValue: horarioServicioStub }]
+    })
+      .compileComponents();
+  }));
 
-//   beforeEach(() => {
-//     fixture = TestBed.createComponent(ListarPeliculaComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ListarHorarioComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-//   it('Pelicula deberia crear dos componentes', () => {
-//     expect(component).toBeTruthy();
-//     component.listaPeliculas.subscribe(resultado => {
-//       expect(resultado).toEqual(dummyListaPeliculas);
-//     });
-//   });
+  it('HORARIO {Crearia el componente}', () => {
+    expect(component).toBeTruthy();
+  });
 
-//   it('Pelicula deberia listar el componente', () => {
-//     expect(component).toBeTruthy();
-//   });
+  it('HORARIO {Comprobaria el componente cree la lista}', () => {
+    component.listaHorarios.subscribe(resultado => {
+      expect(resultado).toEqual(dummyListaHorarios);
+    });
+  });
 
-//   it('Pelicula no debe listar el componente', () => {
-//     expect(!component).toBeFalsy();
-//   });
+  it('HORARIO {Comprobaria que la alerta de vacio este funcional}', () => {
+    dummyListaHorarios = [];
+    component.ngOnInit();
+    fixture.detectChanges();
+    const MSG = fixture.nativeElement.querySelector('#vacio');
+    console.log(MSG);
+    expect(MSG.innerHTML).toEqual(' Hey, No hay Horarios disponibles... ');
+  });
 
-//   it('Pelicula deberia listar las peliculas registradas', () => {
-//     component.ngOnInit();
-//     component.listaPeliculas.subscribe(respuesta => {
-//       expect(respuesta).toEqual(dummyListaPeliculas);
-//     });
-//   });
+  it('HORARIO {Comprobaria que el Boton reciba y envie a Actualizar}', () => {
+    const spyHorario = spyOn(component, 'onSubmitAdd').and.callThrough();
+    component.onSubmitAdd(DUMMY_ID_HORARIO);
+    fixture.detectChanges();
+    fixture.checkNoChanges();
+    fixture.isStable();
+    expect(spyHorario).toHaveBeenCalled();
+  });
 
-//   it('Pelicula deberia mostrar alerta sin peliculas registradas', () => {
-//     dummyListaPeliculas = [];
-//     component.ngOnInit();
-//     fixture.detectChanges();
-//     const MSG = fixture.nativeElement.querySelector('#vacio');
-//     console.log(MSG);
-//     expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
-//   });
-
-//   // it('Debe eliminar la transferencia', async () => {
-//   //   service.eliminarPelicula(1).subscribe( respuesta =>{
-//   //     fixture.detectChanges();
-//   //     expect(respuesta).toBeTruthy();
-//   //   });
-//   // });
-// });
+  it('HORARIO {Comprobaria que se elimino}', () => {
+    const spyHorario = spyOn(component, 'onSubmitDeleteHorario').and.callThrough();
+    component.onSubmitDeleteHorario(DUMMY_ID_HORARIO);
+    fixture.detectChanges();
+    expect(spyHorario).toHaveBeenCalled();
+  });
+});

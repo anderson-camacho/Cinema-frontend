@@ -15,29 +15,25 @@ export class ListarHorarioComponent implements OnInit {
   constructor(protected horarioService: HorarioService, private router: Router) { }
 
   ngOnInit() {
+    this.getHorarios();
+  }
+
+  getHorarios(){
     this.listaHorarios = this.horarioService.consultarHorario();
   }
 
-  onSubmitDeleteHorario(horario: Horario): void {
-    this.horarioService.eliminarHorario(horario.id)
+  onSubmitDeleteHorario(horarioId: number): void {
+    this.horarioService.eliminarHorario(horarioId)
       .subscribe(
-        data => {
-          console.log(data);
-          this.ngOnInit();
-        },
-        error => { console.log(error); }
+        () => {
+          this.getHorarios();
+        }
       );
   }
 
-  onSubmitUpdate(horario: Horario): void {
-    this.router.navigate([`editar_horario/${horario.id}`]);
-
-  }
-
-  onSubmitAdd(horario: Horario): void {
-    console.log(horario.id);
-    localStorage.setItem("idHorario", horario.id.toString());
-    this.router.navigate([`crear_reserva`]);
+  onSubmitAdd(horarioId: number): void {
+    localStorage.setItem('idHorario', horarioId.toString());
+    this.router.navigate([`reserva/crear`]);
 
   }
 

@@ -7,6 +7,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { UsuarioService } from '../../shared/service/usuario.service';
 import { ListarUsuarioComponent } from './listar-usuario.component';
 import { of } from 'rxjs';
+import { EditarUsuarioComponent } from '../editar-usuario/editar-usuario.component';
 
 describe('USUARIO - {Listar, Eliminar}', () => {
   const DUMMY_ID_USUARIO = 1;
@@ -16,10 +17,10 @@ describe('USUARIO - {Listar, Eliminar}', () => {
   let usuarioServicioStub: Partial<UsuarioService>;
 
   let dummyListaUsuarios: Usuario[] = [
-    new Usuario({ id: 1, nombre: 'Juan Esteban GAlindo Hernandez', fechaCreacion: '2021-10-06' }),
+    new Usuario({ id: 1, nombre: 'Juan Esteban Galindo Hernandez', fechaCreacion: '2021-10-06' }),
     new Usuario({ id: 2, nombre: 'Aquileo Camacho Camacho', fechaCreacion: '2021-10-06' }),
     new Usuario({ id: 3, nombre: 'Aracely Hernandez Hernandez', fechaCreacion: '2021-10-06' }),
-    new Usuario({ id: 4, nombre: 'Alezander Camacho Palacios', fechaCreacion: '2021-10-06' })
+    new Usuario({ id: 4, nombre: 'Alexander Camacho Palacios', fechaCreacion: '2021-10-06' })
   ];
 
   usuarioServicioStub = {
@@ -34,7 +35,10 @@ describe('USUARIO - {Listar, Eliminar}', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ListarUsuarioComponent],
-      imports: [CommonModule, HttpClientModule, RouterTestingModule],
+      imports: [CommonModule, HttpClientModule, RouterTestingModule.withRoutes([
+        { path: 'usuario/editar/:id', component: EditarUsuarioComponent }
+      ]),
+      ],
       providers: [{ provide: UsuarioService, HttpService, useValue: usuarioServicioStub }]
     }).compileComponents();
   }));
@@ -61,7 +65,7 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     fixture.detectChanges();
     fixture.checkNoChanges();
     fixture.isStable();
-    expect(spyUsuario).toHaveBeenCalled()
+    expect(spyUsuario).toHaveBeenCalled();
   });
 
   it('USUARIO {Comprobaria que la alerta de vacio este funcional', () => {
@@ -79,4 +83,4 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     fixture.detectChanges();
     expect(spyUsuario).toHaveBeenCalled();
   });
-})
+});

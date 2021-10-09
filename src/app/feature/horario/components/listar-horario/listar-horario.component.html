@@ -32,14 +32,14 @@
         <td>
           <a
             id="linkCrearReservaEnHorario"
-            (click)="onSubmitAdd(item)"
+            (click)="onSubmitAdd(item.id)"
             type="button"
             class="btn btn-success form-control"
             >Reservar</a
           >
           <a
             id="linkEliminarHorario"
-            (click)="onSubmitDeleteHorario(item)"
+            (click)="onSubmitDeleteHorario(item.id)"
             type="button"
             class="btn btn-danger form-control"
             >Eliminar</a
