@@ -1,4 +1,4 @@
-import { HorarioPage } from './../page/pelicula/horario.po';
+import { HorarioPage } from '../page/horario/horario.po';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { PeliculaPage } from '../page/pelicula/pelicula.po';

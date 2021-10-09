@@ -1,6 +1,6 @@
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
-import { UsuarioPage } from '../page/pelicula/usuario.po';
+import { UsuarioPage } from '../page/usuario/usuario.po';
 
 describe('Usuario E2E', () => {
   let page: AppPage;
