@@ -1,89 +1,82 @@
 // import { by, element } from 'protractor';
 
-// export class PeliculaPage {
+export class ReservaPage {
 //   //Atributos
 
-//   //Acciones Generales Pelicula
+//   //Acciones Generales Reserva
 //   //..
 
-//   //Acciones Listar Pelicula
-//   private listaPeliculas = element.all(by.id('linkBodyListaPeliculas'));
-//   linkPelicula = element(by.xpath('/html/body/app-root/app-navbar/nav/a[2]'));
+//   //Acciones Listar Reserva
+//   private listaReservas = element.all(by.id('linkBodyListaReservas'));
+//   linkReserva = element(by.xpath('/html/body/app-root/app-navbar/nav/a[2]'));
 
-//   //Elementos para Crear Pelicula
-//   private linkCrearPeliculasLista = element(by.id('linkCrearPeliculaLista'));
-//   private linkCrearPeliculas = element(by.id('linkBotonCrear'));
-//   private inputTituloCrearPeliculas = element(by.id('linkInputTituloCrearPelicula'));
-//   private inputDirectorCrearPeliculas = element(by.id('linkInputDirectorCrearPelicula'));
+//   //Elementos para Crear Reserva
+//   private linkCrearReservasLista = element(by.id('linkCrearReservaLista'));
+//   private linkCrearReservas = element(by.id('linkBotonCrear'));
+//   private inputTituloCrearReservas = element(by.id('linkInputTituloCrearReserva'));
+//   private inputDirectorCrearReservas = element(by.id('linkInputDirectorCrearReserva'));
 
-//   //Elementos para Actualizar Pelicula
-//   private linkActualizarPeliculas = element(by.id('linkActualizarPelicula'));
-//   private linkEditarPeliculas = element(by.id('linkBotonCrear'));
-//   private inputTituloEditarPeliculas = element(by.id('linkInputTituloEditarPelicula'));
-//   private inputDirectorEditarPeliculas = element(by.id('linkInputDirectorEditarPelicula'));
+//   //Elementos para Actualizar Reserva
+//   private linkActualizarReservas = element(by.id('linkActualizarReserva'));
+//   private linkEditarReservas = element(by.id('linkBotonCrear'));
+//   private inputTituloEditarReservas = element(by.id('linkInputTituloEditarReserva'));
+//   private inputDirectorEditarReservas = element(by.id('linkInputDirectorEditarReserva'));
 
-//   //Elementos para Eliminar Pelicula
-//   private linkEliminarPeliculas = element(by.id('linkEliminarPelicula'));
+//   //Elementos para Eliminar Reserva
+//   private linkEliminarReservas = element(by.id('linkEliminarReserva'));
 
 //   //Metodos
 
-//   //Metodos de accion para Listar Pelicula
-//   async clickBotonListarPeliculas() {
-//     await this.linkPelicula.click();
+//   //Metodos de accion para Listar Reserva
+//   async clickBotonListarReservas() {
+//     await this.linkReserva.click();
 //   }
 
-//   async contarPeliculas() {
-//     return (await this.listaPeliculas).length;
+//   async contarReservas() {
+//     return (await this.listaReservas).length;
 //   }
 
-//   //Metodos de accion para Crear Pelicula
-//   async clickBotonCrearPeliculasEnLista() {
-//     await this.linkCrearPeliculasLista.click();
+//   //Metodos de accion para Crear Reserva
+//   async clickBotonCrearReservasEnLista() {
+//     await this.linkCrearReservasLista.click();
 //   }
 
-//   async clickBotonCrearPeliculas() {
-//     await this.linkCrearPeliculas.click();
+//   async clickBotonCrearReservas() {
+//     await this.linkCrearReservas.click();
 //   }
 
-//   async ingresarTituloCrearPelicula(tituloPeliculas) {
-//     await this.inputTituloCrearPeliculas.sendKeys(tituloPeliculas);
+//   async ingresarTituloCrearReserva(tituloReservas) {
+//     await this.inputTituloCrearReservas.sendKeys(tituloReservas);
 //   }
 
-//   async ingresarDirectorCrearPelicula(directorPeliculas) {
-//     await this.inputDirectorCrearPeliculas.sendKeys(directorPeliculas);
+//   async ingresarDirectorCrearReserva(directorReservas) {
+//     await this.inputDirectorCrearReservas.sendKeys(directorReservas);
 //   }
 
-//   //Metodos de accion para Editar Pelicula
+//   //Metodos de accion para Editar Reserva
 
-//   async clickBotonActualizarPeliculas() {
-//     await this.linkActualizarPeliculas.click();
+//   async clickBotonActualizarReservas() {
+//     await this.linkActualizarReservas.click();
 //   }
 
-//   async clickBotonEditarPeliculas() {
-//     await this.linkEditarPeliculas.click();
+//   async clickBotonEditarReservas() {
+//     await this.linkEditarReservas.click();
 //   }
 
-//   async ingresarTituloEditarPelicula(tituloPeliculas) {
-//     await this.inputTituloEditarPeliculas.sendKeys(tituloPeliculas);
+//   async ingresarTituloEditarReserva(tituloReservas) {
+//     await this.inputTituloEditarReservas.sendKeys(tituloReservas);
 //   }
 
-//   async ingresarDirectorEditarPelicula(directorPeliculas) {
-//     await this.inputDirectorEditarPeliculas.sendKeys(directorPeliculas);
-//   }
-
-
-//   //Metodos de accion para borrar Pelicula
-
-//   async clickBotonEliminarPeliculas() {
-//     await this.linkEliminarPeliculas.click();
+//   async ingresarDirectorEditarReserva(directorReservas) {
+//     await this.inputDirectorEditarReservas.sendKeys(directorReservas);
 //   }
 
 
+//   //Metodos de accion para borrar Reserva
+
+//   async clickBotonEliminarReservas() {
+//     await this.linkEliminarReservas.click();
+//   }
 
 
-
-
-
-
-
-// }
+}
