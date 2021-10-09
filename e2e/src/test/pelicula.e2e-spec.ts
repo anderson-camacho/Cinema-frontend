@@ -2,7 +2,7 @@ import { PeliculaPage } from './../page/pelicula/pelicula.po';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 
-describe('Pelicula E2E', () => {
+describe('PELICULA E2E', () => {
   let page: AppPage;
   let navBar: NavbarPage;
   let pelicula: PeliculaPage;
