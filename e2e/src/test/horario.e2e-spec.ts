@@ -1,7 +1,7 @@
-import { HorarioPage } from '../page/horario/horario.po';
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { PeliculaPage } from '../page/pelicula/pelicula.po';
+import { HorarioPage } from '../page/horario/horario.po';
 
 describe('Horario E2E', () => {
   let page: AppPage;
@@ -24,7 +24,7 @@ describe('Horario E2E', () => {
     pelicula.clickBotonCrearHorarioDesdePelicula();
     horario.ingresarNombreCrearHorario(FECHA);
     horario.ingresarCuposCrearHorario(CUPOS);
-    horario.contarHorarios();
+    horario.clickBotonCrearHorarios();
   });
 
   it('Deberia listar horarios', () => {

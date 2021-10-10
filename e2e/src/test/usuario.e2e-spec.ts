@@ -22,7 +22,7 @@ describe('Usuario E2E', () => {
     usuario.contarUsuarios();
   });
 
-  it('Deberia listar usaurios', () => {
+  it('Deberia listar usuarios', () => {
     page.navigateTo();
     navBar.clickBotonUsuarios();
     expect(1).toBe(usuario.contarUsuarios());
