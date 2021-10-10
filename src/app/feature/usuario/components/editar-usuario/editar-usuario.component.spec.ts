@@ -43,7 +43,7 @@ describe('USUARIO - {Editar}', () => {
       },
       {
         provide: UsuarioService, useValue: {
-          consultarByIdUsuario: (_usuario: Usuario) => {
+          consultarByIdUsuario: (_USUARIO: Usuario) => {
             return of(dummyUsuarios);
           },
           actualizarUsuario: (_DUMMY_ID_USUARIO) => {
