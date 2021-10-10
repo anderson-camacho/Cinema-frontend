@@ -7,7 +7,7 @@ export class HorarioPage {
   linkHorario = element(by.xpath('/html/body/app-root/app-navbar/nav/a[1]'));
 
   // Elementos para Crear Horario
-  private linkBotonCrearHorario = element(by.id('linkCrearHorarioDesdePelicula'));
+  private linkBotonCrearHorario = element(by.id('linkBotonCrearHorario'));
   private linkInputNombreCrearHorario = element(by.id('linkInputNombreCrearHorario'));
   private linkInputCuposCrearHorario = element(by.id('linkInputCuposCrearHorario'));
 
@@ -28,7 +28,7 @@ export class HorarioPage {
   }
 
   // Metodos de accion para Crear Horario
-  async clickBotonCrearHorariosEnLista() {
+  async clickBotonCrearHorarios() {
     await this.linkBotonCrearHorario.click();
   }
 
