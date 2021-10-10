@@ -12,6 +12,7 @@ export class PeliculaPage {
   private inputTituloCrearPeliculas = element(by.id('linkInputTituloCrearPelicula'));
   private inputDirectorCrearPeliculas = element(by.id('linkInputDirectorCrearPelicula'));
 
+
   // Elementos para Actualizar Pelicula
   private linkActualizarPeliculas = element(by.id('linkActualizarPelicula'));
   private linkEditarPeliculas = element(by.id('linkBotonCrear'));
