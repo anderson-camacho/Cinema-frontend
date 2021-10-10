@@ -1,4 +1,4 @@
-import { by, element } from "protractor";
+import { by, element } from 'protractor';
 
 export class ReservaPage {
   // Atributos
@@ -13,12 +13,12 @@ export class ReservaPage {
   private linkCrearReservas = element(by.id('linkBotonCrearReserva'));
   private inputlinkInputNombreCrearReserva = element(by.id('linkInputNombreCrearReserva'));
 
-  //Elementos para Eliminar Reserva
+  // Elementos para Eliminar Reserva
   private linkEliminarReservas = element(by.id('linkEliminarReserva'));
 
-  //Metodos
+  // Metodos
 
-  //Metodos de accion para Listar Reserva
+  // Metodos de accion para Listar Reserva
   async clickBotonListarReservas() {
     await this.linkReserva.click();
   }
@@ -27,7 +27,7 @@ export class ReservaPage {
     return (await this.listaReservas).length;
   }
 
-  //Metodos de accion para Crear Reserva
+  // Metodos de accion para Crear Reserva
 
   async clickBotonCrearReservas() {
     await this.linkCrearReservas.click();
@@ -38,7 +38,7 @@ export class ReservaPage {
   }
 
 
-  //Metodos de accion para borrar Reserva
+  // Metodos de accion para borrar Reserva
 
   async clickBotonEliminarReservas() {
     await this.linkEliminarReservas.click();

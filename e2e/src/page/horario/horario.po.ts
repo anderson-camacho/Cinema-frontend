@@ -40,7 +40,7 @@ export class HorarioPage {
     await this.linkInputCuposCrearHorario.sendKeys(directorHorarios);
   }
 
-  //Metodos de accion para crear Resevas
+  // Metodos de accion para crear Resevas
   async clickBotonCrearReseva(){
     await this.linkBotonCrearReserva.click();
   }
