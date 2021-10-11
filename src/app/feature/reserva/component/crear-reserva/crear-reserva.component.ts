@@ -30,10 +30,7 @@ constructor(protected reservaService: ReservaService, private router: Router) { 
         tap(() => this.router.navigate(['reserva/listar'])),
         delay(2000)
       )
-      .subscribe(
-        data => { console.log(data); },
-        error => { console.log(error); }
-      );
+      .subscribe();
   }
 
   private construirFormularioReserva() {

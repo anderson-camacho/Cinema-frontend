@@ -68,7 +68,6 @@ describe('HORARIO - {Listar, Eliminar}', () => {
     component.ngOnInit();
     fixture.detectChanges();
     const MSG = fixture.nativeElement.querySelector('#vacio');
-    console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay Horarios disponibles... ');
   });
 

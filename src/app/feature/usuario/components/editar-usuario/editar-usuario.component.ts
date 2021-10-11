@@ -44,11 +44,7 @@ export class EditarUsuarioComponent implements OnInit {
       )
       .subscribe(
         data => {
-          console.log(data);
           respuesta = data;
-        },
-        error => {
-          console.log(error);
         }
       );
     return respuesta;
