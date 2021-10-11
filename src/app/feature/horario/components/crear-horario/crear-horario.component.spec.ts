@@ -53,7 +53,7 @@ describe('HORARIO - {Crear}', () => {
     expect(component.horarioForm.valid).toBeTruthy();
   });
 
-  it('HORARIO {Se contruye el formulario}', ()=>{
+  it('HORARIO {Se contruye el formulario}', () => {
     const spyHorario = spyOn(component, 'construirFormularioHorario').and.callThrough();
     component.construirFormularioHorario();
     fixture.detectChanges();
