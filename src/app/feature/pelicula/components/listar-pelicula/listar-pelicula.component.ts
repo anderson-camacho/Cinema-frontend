@@ -14,10 +14,10 @@ export class ListarPeliculaComponent implements OnInit {
   constructor(protected peliculaService: PeliculaService, private router: Router) { }
 
   ngOnInit() {
-    this.getPeliculaListar()
+    this.getPeliculaListar();
   }
 
-  getPeliculaListar(){
+  getPeliculaListar() {
     this.listaPeliculas = this.peliculaService.consultarPelicula();
   }
 
