@@ -7,8 +7,7 @@ import { ReservaService } from '@reserva/shared/service/usuario.service';
 
 @Component({
   selector: 'app-crear-reserva',
-  templateUrl: './crear-reserva.component.html',
-  styleUrls: ['./crear-reserva.component.scss']
+  templateUrl: './crear-reserva.component.html'
 })
 export class CrearReservaComponent implements OnInit {
   reservaForm: FormGroup;

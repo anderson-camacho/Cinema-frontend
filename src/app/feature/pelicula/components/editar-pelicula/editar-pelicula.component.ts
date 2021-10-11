@@ -10,8 +10,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 60;
 
 @Component({
   selector: 'app-editar-pelicula',
-  templateUrl: './editar-pelicula.component.html',
-  styleUrls: ['./editar-pelicula.component.scss']
+  templateUrl: './editar-pelicula.component.html'
 })
 export class EditarPeliculaComponent implements OnInit {
   peliculaId: number;

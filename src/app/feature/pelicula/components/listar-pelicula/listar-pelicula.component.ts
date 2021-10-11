@@ -6,8 +6,7 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-pelicula',
-  templateUrl: './listar-pelicula.component.html',
-  styleUrls: ['./listar-pelicula.component.scss']
+  templateUrl: './listar-pelicula.component.html'
 })
 export class ListarPeliculaComponent implements OnInit {
   public listaPeliculas: Observable<Pelicula[]>;

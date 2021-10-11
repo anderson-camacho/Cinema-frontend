@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-usuario',
-  templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.scss']
+  templateUrl: './crear-usuario.component.html'
 })
 export class CrearUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;

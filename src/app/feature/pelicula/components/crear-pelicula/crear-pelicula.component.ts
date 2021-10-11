@@ -10,8 +10,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 60;
 
 @Component({
   selector: 'app-crear-pelicula',
-  templateUrl: './crear-pelicula.component.html',
-  styleUrls: ['./crear-pelicula.component.scss']
+  templateUrl: './crear-pelicula.component.html'
 })
 export class CrearPeliculaComponent implements OnInit {
   peliculaForm: FormGroup;

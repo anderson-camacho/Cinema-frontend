@@ -7,8 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-editar-usuario',
-  templateUrl: './editar-usuario.component.html',
-  styleUrls: ['./editar-usuario.component.scss']
+  templateUrl: './editar-usuario.component.html'
 })
 export class EditarUsuarioComponent implements OnInit {
   usuarioId: number;

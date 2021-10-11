@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-horario',
-  templateUrl: './crear-horario.component.html',
-  styleUrls: ['./crear-horario.component.scss']
+  templateUrl: './crear-horario.component.html'
 })
 export class CrearHorarioComponent implements OnInit {
   horarioForm: FormGroup;
