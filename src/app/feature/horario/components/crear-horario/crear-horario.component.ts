@@ -7,8 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crear-horario',
-  templateUrl: './crear-horario.component.html',
-  styleUrls: ['./crear-horario.component.scss']
+  templateUrl: './crear-horario.component.html'
 })
 export class CrearHorarioComponent implements OnInit {
   horarioForm: FormGroup;
@@ -30,18 +29,13 @@ export class CrearHorarioComponent implements OnInit {
   onSubmit() {
     let horarioGuardar: Horario;
     horarioGuardar = this.horarioForm.value;
-    console.log(this.horarioId);
     horarioGuardar.idPelicula = this.horarioId;
 
     this.horarioService.guardarHorario(horarioGuardar)
       .pipe(
         tap(() => this.router.navigate(['horario/listar'])),
         delay(2000)
-      )
-      .subscribe(
-        data => { console.log(data); },
-        error => { console.log(error); }
-      );
+      ).subscribe();
   }
 
   private construirFormularioHorario() {

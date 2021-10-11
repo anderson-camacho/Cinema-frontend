@@ -73,7 +73,6 @@ describe('USUARIO - {Listar, Eliminar}', () => {
     component.ngOnInit();
     fixture.detectChanges();
     const MSG = fixture.nativeElement.querySelector('#AlertaListaDeUsauriosVacia');
-    console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay usuarios disponibles... ');
   });
 

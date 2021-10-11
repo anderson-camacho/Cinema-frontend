@@ -65,7 +65,6 @@ describe('RESERVA - {Listar, Eliminar}', () => {
     component.getReseva();
     fixture.detectChanges();
     const MSG = fixture.nativeElement.querySelector('#vacio');
-    console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay reservas disponibles... ');
   });
 

@@ -7,8 +7,7 @@ import { ReservaService } from '@reserva/shared/service/usuario.service';
 
 @Component({
   selector: 'app-crear-reserva',
-  templateUrl: './crear-reserva.component.html',
-  styleUrls: ['./crear-reserva.component.scss']
+  templateUrl: './crear-reserva.component.html'
 })
 export class CrearReservaComponent implements OnInit {
   reservaForm: FormGroup;
@@ -31,10 +30,7 @@ constructor(protected reservaService: ReservaService, private router: Router) { 
         tap(() => this.router.navigate(['reserva/listar'])),
         delay(2000)
       )
-      .subscribe(
-        data => { console.log(data); },
-        error => { console.log(error); }
-      );
+      .subscribe();
   }
 
   private construirFormularioReserva() {

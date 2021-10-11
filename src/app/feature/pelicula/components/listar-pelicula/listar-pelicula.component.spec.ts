@@ -70,7 +70,6 @@ describe('PELICULA - {Listar}', () => {
     component.ngOnInit();
     fixture.detectChanges();
     const MSG = fixture.nativeElement.querySelector('#vacio');
-    console.log(MSG);
     expect(MSG.innerHTML).toEqual(' Hey, No hay peliculas disponibles... ');
   });
 

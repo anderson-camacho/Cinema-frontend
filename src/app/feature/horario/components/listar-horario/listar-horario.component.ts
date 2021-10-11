@@ -6,8 +6,7 @@ import { Horario } from '@horario/shared/model/horario';
 
 @Component({
   selector: 'app-listar-horario',
-  templateUrl: './listar-horario.component.html',
-  styleUrls: ['./listar-horario.component.scss']
+  templateUrl: './listar-horario.component.html'
 })
 export class ListarHorarioComponent implements OnInit {
   public listaHorarios: Observable<Horario[]>;

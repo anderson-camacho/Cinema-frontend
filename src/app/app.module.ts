@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { HorarioModule } from './feature/horario/horario.module';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,7 +27,8 @@ import { ReservaModule } from '@reserva/reserva.module';
     UsuarioModule,
     HorarioModule,
     ReservaModule,
-    CoreModule
+    CoreModule,
+    RouterModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],
