@@ -48,8 +48,15 @@ describe('HORARIO - {Crear}', () => {
     expect(component.horarioForm.valid).toBeFalsy();
     component.horarioForm.controls.fecha.setValue('2025-12-21');
     component.horarioForm.controls.cupos.setValue('directorPrueba');
-    fixture.detectChanges();
     component.onSubmit();
+    fixture.detectChanges();
     expect(component.horarioForm.valid).toBeTruthy();
+  });
+
+  it('HORARIO {Se contruye el formulario}', ()=>{
+    const spyHorario = spyOn(component, 'construirFormularioHorario').and.callThrough();
+    component.construirFormularioHorario();
+    fixture.detectChanges();
+    expect(spyHorario).toHaveBeenCalled();
   });
 });

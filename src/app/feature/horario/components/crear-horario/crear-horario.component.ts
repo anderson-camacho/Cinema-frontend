@@ -38,7 +38,7 @@ export class CrearHorarioComponent implements OnInit {
       ).subscribe();
   }
 
-  private construirFormularioHorario() {
+  construirFormularioHorario() {
     this.horarioForm = new FormGroup({
       fecha: new FormControl('', [Validators.required]),
       cupos: new FormControl('', [Validators.required])
